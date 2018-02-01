@@ -117,11 +117,14 @@ add_action( 'widgets_init', 'badmovienight_widgets_init' );
  * Enqueue scripts and styles.
  */
 function badmovienight_scripts() {
+	// Bootstrap
+	wp_enqueue_style( 'bootstrap-min', get_template_directory_uri() . '/css/bootstrap.min.css' );
 	wp_enqueue_style( 'badmovienight-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'badmovienight-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'badmovienight-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'badmovienight-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20180201', true );
+	wp_enqueue_script( 'badmovienight-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20180201', true );
+	wp_enqueue_script( 'badmovienight-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20180201', true );
+	wp_enqueue_script( 'badmovienight-script', get_template_directory_uri() . '/js/script.js', array(), '20180201', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
