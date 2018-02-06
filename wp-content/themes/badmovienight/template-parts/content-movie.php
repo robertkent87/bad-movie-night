@@ -10,6 +10,7 @@
 ?>
 
 <?php if ( is_singular() ) : ?>
+    <!-- Single movie post here -->
 <?php else: ?>
 <article class="col-md-4 movie d-flex align-items-stretch" id="post-<?php the_ID(); ?>">
     <div class="card clearfix">
