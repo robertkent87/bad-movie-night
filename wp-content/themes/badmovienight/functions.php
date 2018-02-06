@@ -140,8 +140,13 @@
 	 */
 	function set_custom_edit_movie_columns($columns){
 		$date = $columns['date'];
-		unset($columns['date']);
+		$title = $columns['title'];
 
+		unset($columns['date']);
+		unset($columns['title']);
+
+		$columns['poster'] = __('Poster');
+		$columns['title'] = $title;
 		$columns['release_year'] = __('Year');
 		$columns['date'] = $date;
 
@@ -153,6 +158,9 @@
 		switch ($column){
 			case 'release_year':
 				echo intval(get_field('year', $post_id));
+				break;
+			case 'poster':
+				the_post_thumbnail('thumbnail');
 				break;
 		}
 	}
