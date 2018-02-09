@@ -123,6 +123,10 @@
 		wp_enqueue_style('bootstrap-min', get_template_directory_uri() . '/css/bootstrap.min.css');
 		wp_enqueue_style('badmovienight-style', get_stylesheet_uri());
 
+		// Fonts
+    wp_enqueue_style('open_sans', 'https://fonts.googleapis.com/css?family=Open+Sans');
+    wp_enqueue_style('open_sans', 'https://fonts.googleapis.com/css?family=Signika:400,700');
+
 		wp_deregister_script('jquery');
 		wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-3.3.1.min.js', array(), '3.3.1');
 		wp_enqueue_script('bootstrap-min', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20180201', true);
@@ -214,3 +218,20 @@
 		require get_template_directory() . '/inc/jetpack.php';
 	}
 
+	/**
+   * Custom class on nav links
+   */
+  function bmn_menu_classes($classes, $item, $args) {
+    if ($args->theme_location == 'menu-1') {
+      $classes[] = 'nav-item';
+    }
+    return $classes;
+  }
+
+  add_filter('nav_menu_css_class', 'bmn_menu_classes', 1, 3);
+
+  function add_link_atts($atts) {
+    $atts['class'] = "nav-link";
+    return $atts;
+  }
+  add_filter( 'nav_menu_link_attributes', 'add_link_atts');

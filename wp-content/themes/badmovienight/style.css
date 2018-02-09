@@ -265,7 +265,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -273,6 +273,8 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	font-family: 'Signika', sans-serif;
+	font-weight: 700;
 }
 
 p {
@@ -880,9 +882,17 @@ html, body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141e30', endColorstr='#243b55',GradientType=1 ); /* IE6-9 */
 }
 
+nav.navbar {
+	background: transparent !important;
+}
+
 /* Intro */
 div#intro {
 	color: #ffffff;
 	text-align: center;
 	margin: 8em auto;
+}
+
+#search-form{
+	margin-bottom: 2rem;
 }

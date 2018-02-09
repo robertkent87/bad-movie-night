@@ -22,17 +22,21 @@
 </head>
 <body <?php body_class(); ?>>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">Demo</a>
+        <a href="/" class="navbar-brand">
+            <img src="<?php print get_template_directory_uri(); ?>/images/logo-1line-small.png" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-	        <?php
-		        wp_nav_menu( array(
-			        'theme_location' => 'menu-1',
-			        'menu_id'        => 'primary-menu',
-		        ) );
-	        ?>
-        </div>
+        <?php
+            wp_nav_menu( array(
+                'theme_location' => 'menu-1',
+                'container' => 'div',
+                'container_class' => 'collapse navbar-collapse mr-auto',
+                'container_id' => 'navbarNav',
+                'menu_class' => 'navbar-nav',
+            ) );
+        ?>
+        <a href="/submit-movie" class="btn btn-outline-light">Submit movie</a>
     </nav>
     <div class="container">

@@ -163,7 +163,7 @@
         <!-- /Movie listing -->
     </div>
 <?php else: ?>
-    <article class="col-md-4 movie d-flex align-items-stretch" id="post-<?php the_ID(); ?>">
+    <article class="col-md-3 movie d-flex align-items-stretch" id="post-<?php the_ID(); ?>">
         <div class="card clearfix">
             <a href="<?php the_permalink(); ?>">
 				<?php the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top']); ?>
