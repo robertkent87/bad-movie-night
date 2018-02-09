@@ -879,3 +879,10 @@ html, body {
 	background: linear-gradient(to right, #141e30 0%,#243b55 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141e30', endColorstr='#243b55',GradientType=1 ); /* IE6-9 */
 }
+
+/* Intro */
+div#intro {
+	color: #ffffff;
+	text-align: center;
+	margin: 8em auto;
+}

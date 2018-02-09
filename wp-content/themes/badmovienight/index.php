@@ -14,11 +14,9 @@
 
 get_header(); ?>
 
-    <div class="jumbotron">
-        <h1>This is a demo</h1>
-        <p class="lead">This text is not final and should be replaced. What you are reading now is not what you will
-            be reading in this space once this website goes live. This is placeholder text that our web designers
-            put here to make sure words appear properly on your website.</p>
+    <div id="intro">
+        <h1>The worst movies for your night in</h1>
+        <p class="lead">Whether you're having friends over bored on your own, you'll find the best cinematic garbage here.</p>
     </div>
     <div class="row" id="movie-listing">
         <!-- Search Form -->
