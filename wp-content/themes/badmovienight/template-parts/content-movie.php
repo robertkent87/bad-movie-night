@@ -9,7 +9,7 @@
 
 ?>
 
-<?php if (is_singular()) : ?>
+<?php if (!is_front_page()) : ?>
 	<?php
 	$genre_list      = strip_tags(get_the_term_list($post->ID, 'genre', '', ', ', ''));
 	$collection_list = strip_tags(get_the_term_list($post->ID, 'collection', '', ', ', ''));

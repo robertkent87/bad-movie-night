@@ -58,7 +58,7 @@ get_header(); ?>
     <div class="row" id="movie-listing">
         <!-- Movie listing -->
             <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged'): 1;
+                $paged = (get_query_var('page')) ? get_query_var('page'): 1;
                 $args = [
                     'post_type' => 'movie',
                     'post_status' => 'publish',
