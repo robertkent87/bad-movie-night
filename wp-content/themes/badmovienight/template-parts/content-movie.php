@@ -105,56 +105,58 @@
 
                 </div>
                 <div class="tab-pane" id="user_reviews" role="tabpanel">
-                    <div class="media">
-                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                             alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">List-based media object</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
-                    <div class="media my-4">
-                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                             alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">List-based media object</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                             alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">List-based media object</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
+                    <p>Coming in a later release...</p>
+<!--                    <div class="media">-->
+<!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
+<!--                             alt="Generic placeholder image">-->
+<!--                        <div class="media-body">-->
+<!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
+<!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+<!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
+<!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="media my-4">-->
+<!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
+<!--                             alt="Generic placeholder image">-->
+<!--                        <div class="media-body">-->
+<!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
+<!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+<!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
+<!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="media">-->
+<!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
+<!--                             alt="Generic placeholder image">-->
+<!--                        <div class="media-body">-->
+<!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
+<!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+<!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
+<!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 <div class="tab-pane" id="stream_options" role="tabpanel">
-                    <table class="table borderless">
-                        <tr>
-                            <th>Netflix</th>
-                            <td>https://www.link.com</td>
-                        </tr>
-                        <tr>
-                            <th>Amazon</th>
-                            <td>https://www.link.com</td>
-                        </tr>
-                        <tr>
-                            <th>YouTube</th>
-                            <td>https://www.link.com</td>
-                        </tr>
-                        <tr>
-                            <th>Other</th>
-                            <td>https://www.link.com</td>
-                        </tr>
-                    </table>
+                    <p>Coming in a later release...</p>
+<!--                    <table class="table borderless">-->
+<!--                        <tr>-->
+<!--                            <th>Netflix</th>-->
+<!--                            <td>https://www.link.com</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>Amazon</th>-->
+<!--                            <td>https://www.link.com</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>YouTube</th>-->
+<!--                            <td>https://www.link.com</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>Other</th>-->
+<!--                            <td>https://www.link.com</td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
                 </div>
             </div>
         </div>
