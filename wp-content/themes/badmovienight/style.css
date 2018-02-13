@@ -896,3 +896,34 @@ div#intro {
 #search-form{
 	margin-bottom: 2rem;
 }
+
+/* Movie grid */
+#movie-listing .movie .movie-title {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  margin: 0 0 1rem;
+  padding: inherit;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.85);
+  transition: background-color 250ms;
+}
+
+#movie-listing .movie .movie-title a,
+#movie-listing .movie .movie-title a:visited {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 250ms;
+}
+
+#movie-listing .movie .movie-title:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+#movie-listing .movie .movie-title:hover a {
+  text-decoration: none;
+  color: #000;
+}

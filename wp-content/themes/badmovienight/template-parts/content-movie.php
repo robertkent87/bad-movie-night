@@ -13,19 +13,19 @@
 	<?php
 	$genre_list      = strip_tags(get_the_term_list($post->ID, 'genre', '', ', ', ''));
 	$collection_list = strip_tags(get_the_term_list($post->ID, 'collection', '', ', ', ''));
-	$actors = get_the_terms($post->ID, 'actors');
+	$actors          = get_the_terms($post->ID, 'actors');
 
 	// get iframe HTML
 	$iframe = get_field('trailer');
 
 	// remove width & height attributes
-	$iframe = preg_replace( '/(width|height)=("|\')\d*(|px)("|\')\s/', "", $iframe);
+	$iframe = preg_replace('/(width|height)=("|\')\d*(|px)("|\')\s/', "", $iframe);
 
-    // use preg_match to find iframe src
+	// use preg_match to find iframe src
 	preg_match('/src="(.+?)"/', $iframe, $matches);
 	$src = $matches[1];
 
-    // add extra params to iframe src
+	// add extra params to iframe src
 	$params = array(
 		'controls' => 1,
 		'hd'       => 1,
@@ -33,11 +33,11 @@
 	);
 
 	$new_src = add_query_arg($params, $src);
-	$iframe = str_replace($src, $new_src, $iframe);
+	$iframe  = str_replace($src, $new_src, $iframe);
 
-    // add extra attributes to iframe html
+	// add extra attributes to iframe html
 	$attributes = 'frameborder="0"';
-	$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+	$iframe     = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
 
 	?>
     <div class="row" id="movie-detail">
@@ -95,13 +95,13 @@
 
                     <h3>Cast</h3>
                     <div class="row">
-                        <?php foreach ($actors as $actor): ?>
+						<?php foreach ($actors as $actor): ?>
                             <div class="col"><?= $actor->name; ?></div>
-                        <?php endforeach; ?>
+						<?php endforeach; ?>
                     </div>
 
                     <h3>Why it's bad</h3>
-                    <?php the_content(); ?>
+					<?php the_content(); ?>
 
                 </div>
                 <div class="tab-pane" id="user_reviews" role="tabpanel">
@@ -163,15 +163,10 @@
         <!-- /Movie listing -->
     </div>
 <?php else: ?>
-    <article class="col-md-3 movie d-flex align-items-stretch" id="post-<?php the_ID(); ?>">
-        <div class="card clearfix">
-            <a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top']); ?>
-            </a>
-            <div class="card-body">
-                <h5 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
-                <p class="card-text"><?php the_field('year'); ?> <span class="float-right">5.5</span></p>
-            </div>
-        </div>
+    <article class="col-md-3 movie clearfix" id="post-<?php the_ID(); ?>">
+        <a href="<?php the_permalink(); ?>">
+			<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']); ?>
+        </a>
+        <p class="movie-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
     </article>
 <?php endif; ?>
