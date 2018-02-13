@@ -152,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-                <nav>
+                <nav class="row">
                     <ul class="pagination justify-content-center">
                         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>

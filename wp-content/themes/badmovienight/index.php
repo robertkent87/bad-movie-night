@@ -81,7 +81,7 @@ get_header(); ?>
                     get_template_part( 'template-parts/content', 'none' );
                 endif; ?>
         </div>
-        <nav>
+        <nav id="pagination">
             <ul class="pagination justify-content-center">
                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>

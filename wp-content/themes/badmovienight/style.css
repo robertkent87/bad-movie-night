@@ -927,3 +927,8 @@ div#intro {
   text-decoration: none;
   color: #000;
 }
+
+#pagination {
+	width: 100%;
+	margin: 1rem auto;
+}
