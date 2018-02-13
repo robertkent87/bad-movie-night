@@ -271,7 +271,7 @@ textarea {
 	line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, th {
 	clear: both;
 	font-family: 'Signika', sans-serif;
 	font-weight: 700;
@@ -854,6 +854,8 @@ object {
 	display: block;
 }
 
+/* General */
+
 /* Responsive embeds */
 .embed-container {
 	position: relative;
@@ -931,4 +933,26 @@ div#intro {
 #pagination {
 	width: 100%;
 	margin: 1rem auto;
+}
+
+/* Movie detail page */
+#movie-detail {
+	color: #fff;
+}
+
+.borderless td, .borderless th {
+	border: none;
+}
+
+#movie-detail-tabs {
+	margin-top: 5rem;
+	margin-left: 0;
+}
+
+#movie-detail-tabs a {
+	color: #ccc;
+}
+
+#movie-detail-tabs a.active {
+	color: #495057;
 }

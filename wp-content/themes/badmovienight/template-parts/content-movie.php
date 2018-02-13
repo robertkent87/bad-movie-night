@@ -43,7 +43,7 @@
     <div class="row" id="movie-detail">
         <div class="col-md-3">
 			<?php the_post_thumbnail('large', ['class' => 'img-fluid']) ?>
-            <table class="table">
+            <table class="table borderless">
                 <tr>
                     <th>Rating</th>
                     <td>4.1</td>
@@ -73,7 +73,7 @@
             </h1>
 			<?php the_field('synopsis') ?>
 
-            <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+            <ul class="nav nav-tabs mb-3" id="movie-detail-tabs" role="tablist">
                 <li class="nav-item">
                     <a href="#details" id="details-tab" data-toggle="tab" role="tab"
                        class="nav-link active">Details</a>
@@ -105,41 +105,39 @@
 
                 </div>
                 <div class="tab-pane" id="user_reviews" role="tabpanel">
-                    <ul class="list-unstyled">
-                        <li class="media">
-                            <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                                 alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1">List-based media object</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </li>
-                        <li class="media my-4">
-                            <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                                 alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1">List-based media object</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                                 alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1">List-based media object</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="media">
+                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
+                             alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">List-based media object</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+                    <div class="media my-4">
+                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
+                             alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">List-based media object</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+                    <div class="media">
+                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
+                             alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">List-based media object</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane" id="stream_options" role="tabpanel">
-                    <table class="table">
+                    <table class="table borderless">
                         <tr>
                             <th>Netflix</th>
                             <td>https://www.link.com</td>
