@@ -64,7 +64,7 @@ get_header(); ?>
                     'post_status' => 'publish',
                     'orderby' => 'date',
                     'order' => 'ASC',
-                    'posts_per_page' => 2,
+                    'posts_per_page' => 12,
                     'paged' => $paged
                 ];
 
