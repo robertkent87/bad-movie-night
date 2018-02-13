@@ -126,8 +126,9 @@
 		wp_enqueue_style('badmovienight-style', get_stylesheet_uri());
 
 		// Fonts
-    wp_enqueue_style('open_sans', 'https://fonts.googleapis.com/css?family=Open+Sans');
-    wp_enqueue_style('signika', 'https://fonts.googleapis.com/css?family=Signika:400,700');
+        wp_enqueue_style('open_sans', 'https://fonts.googleapis.com/css?family=Open+Sans');
+//        wp_enqueue_style('signika', 'https://fonts.googleapis.com/css?family=Signika:400,700');
+        wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
 
 		wp_deregister_script('jquery');
 		wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-3.3.1.min.js', array(), '3.3.1');
