@@ -116,6 +116,13 @@
 				$collection_filter  = filter_input(INPUT_POST, 'collection', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
 			}
 
+			if (isset($_POST['reset'])){
+				$genre_filter = '';
+				$director_filter = '';
+				$year_filter = '';
+				$collection_filter = '';
+            }
+
 			$paged = (get_query_var('page')) ? get_query_var('page') : 1;
 			$args  = [
 				'post_type'      => 'movie',
