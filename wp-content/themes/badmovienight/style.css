@@ -855,6 +855,13 @@ object {
 }
 
 /* General */
+html, body {
+	color: #fdfdfd;
+}
+
+.navbar-nav .current-menu-item .nav-link {
+	color: #fdfdfd;
+}
 
 /* Responsive embeds */
 .embed-container {
