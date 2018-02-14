@@ -859,6 +859,10 @@ html, body {
 	color: #fdfdfd;
 }
 
+.select2-results__option {
+	color: #404040;
+}
+
 .navbar-nav .current-menu-item .nav-link {
 	color: #fdfdfd;
 }
@@ -962,6 +966,33 @@ div#intro {
 
 #movie-detail-tabs a.active {
 	color: #495057;
+}
+
+select#genres,
+select#director,
+select#collection {
+	width: 20%;
+}
+
+select#release-year {
+	width: 10%;
+}
+
+.select2 {
+	margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+	select#genres,
+	select#director,
+	select#collection,
+	select#release-year {
+		width: 100%;
+	}
+
+	.select2 {
+		margin-bottom: 1rem;
+	}
 }
 
 .select2-container {

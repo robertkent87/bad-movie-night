@@ -21,7 +21,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a href="/" class="navbar-brand">
             <img src="<?php print get_template_directory_uri(); ?>/images/logo-1line-small.png" alt="">
         </a>

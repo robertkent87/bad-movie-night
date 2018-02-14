@@ -59,28 +59,28 @@
 <!--        <input type="text" name="keywords" id="keywords" class="mr-sm-2" placeholder="Keywords">-->
 
         <label class="sr-only" for="genres">Genre</label>
-        <select multiple name="genres[]" id="genres" class="select2" style="width: 20%" data-placeholder="Genre">
+        <select multiple name="genres[]" id="genres" class="select2" data-placeholder="Genre">
             <?php foreach ($genre_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
             <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="director">Director</label>
-        <select multiple name="director[]" id="director" class="select2" style="width: 20%" data-placeholder="Director">
+        <select multiple name="director[]" id="director" class="select2" data-placeholder="Director">
 	        <?php foreach ($director_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="release-year">Year</label>
-        <select multiple name="release-year[]" id="release-year" class="select2" style="width: 10%" data-placeholder="Year">
+        <select multiple name="release-year[]" id="release-year" class="select2" data-placeholder="Year">
 	        <?php foreach ($year_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="collection">Collection</label>
-        <select multiple name="collection[]" id="collection" class="select2" style="width: 20%" data-placeholder="Collection">
+        <select multiple name="collection[]" id="collection" class="select2" data-placeholder="Collection">
 	        <?php foreach ($collection_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
