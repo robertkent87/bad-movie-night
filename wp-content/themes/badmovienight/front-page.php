@@ -1,22 +1,23 @@
 <?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Bad_Movie_Night
- */
+	/**
+	 * The main template file
+	 *
+	 * This is the most generic template file in a WordPress theme
+	 * and one of the two required files for a theme (the other being style.css).
+	 * It is used to display a page when nothing more specific matches a query.
+	 * E.g., it puts together the home page when no home.php file exists.
+	 *
+	 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+	 *
+	 * @package Bad_Movie_Night
+	 */
 
-get_header(); ?>
+	get_header(); ?>
 
     <div id="intro">
         <h1>The worst movies for your night in</h1>
-        <p class="lead">Whether you're having friends over bored on your own, you'll find the best cinematic garbage here</p>
+        <p class="lead">Whether you're having friends over bored on your own, you'll find the best cinematic garbage
+            here</p>
     </div>
 
     <!-- Search Form -->
@@ -57,56 +58,41 @@ get_header(); ?>
 
     <div class="row" id="movie-listing">
         <!-- Movie listing -->
-            <?php
-                $paged = (get_query_var('page')) ? get_query_var('page'): 1;
-                $args = [
-                    'post_type' => 'movie',
-                    'post_status' => 'publish',
-                    'orderby' => 'date',
-                    'order' => 'ASC',
-                    'posts_per_page' => 12,
-                    'paged' => $paged
-                ];
+		<?php
+			$paged = (get_query_var('page')) ? get_query_var('page') : 1;
+			$args  = [
+				'post_type'      => 'movie',
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'ASC',
+				'posts_per_page' => 12,
+				'paged'          => $paged
+			];
 
-                $movies = new WP_Query($args);
+			$movies = new WP_Query($args);
+		?>
+		<?php if ($movies->have_posts()) : ?>
+            <div class="row">
+				<?php while ($movies->have_posts()) : $movies->the_post(); ?>
+					<?php get_template_part('template-parts/content', 'movie'); ?>
+				<?php endwhile; ?>
+            </div>
 
-                if ( $movies->have_posts() ) :
-                    /* Start the Loop */
-                    ?>
-                    <div class="row">
-                    <?php
-                    while ( $movies->have_posts() ) : $movies->the_post();
-                        /*
-                         * Include the Post-Format-specific template for the content.
-                         * If you want to override this in a child theme, then include a file
-                         * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                         */
-                        get_template_part( 'template-parts/content', 'movie' );
-                    endwhile;
-                    ?>
-                    </div>
-                    <nav id="pagination">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item"><?php previous_posts_link( '&laquo; PREV', $movies->max_num_pages) ?></li>
-                            <li class="page-item"><?php next_posts_link( 'NEXT &raquo;', $movies->max_num_pages) ?></li>
-                        </ul>
-                    </nav>
-                    <?php
-	                wp_reset_postdata();
-                else :
-                    get_template_part( 'template-parts/content', 'none' );
-                endif; ?>
-        <nav>
-            <ul
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+			<?php if (is_front_page()): ?>
+                <nav id="pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><?php previous_posts_link('&laquo; PREV', $movies->max_num_pages) ?></li>
+                        <li class="page-item"><?php next_posts_link('NEXT &raquo;', $movies->max_num_pages) ?></li>
+                    </ul>
+                </nav>
+			<?php endif; ?>
+
+			<?php wp_reset_postdata(); ?>
+		<?php else : ?>
+			<?php get_template_part('template-parts/content', 'none'); ?>
+		<?php endif; ?>
         <!-- /Movie listing -->
     </div>
 
 <?php
-get_footer();
+	get_footer();
