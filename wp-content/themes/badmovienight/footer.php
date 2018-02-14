@@ -43,35 +43,11 @@
 <!--                </div>-->
 <!--            </div>-->
             <div class="col-md-6">
-                <h3>Recent Tweets</h3>
-                <div class="media">
-                    <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                         alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin.
-                    </div>
-                </div>
-                <div class="media my-4">
-                    <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                         alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin.
-                    </div>
-                </div>
-                <div class="media">
-                    <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                         alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin.
-                    </div>
-                </div>
+                <?php if (is_active_sidebar('footer_column_1')): ?>
+                    <?php dynamic_sidebar('footer_column_1'); ?>
+                <?php endif; ?>
             </div>
+            
             <div class="col-md-6" id="footer-contact">
                 <h3>Get In Touch</h3>
 	            <?php echo do_shortcode('[contact-form-7 id="55" title="Contact form 1"]'); ?>
