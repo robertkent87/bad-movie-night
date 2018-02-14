@@ -16,33 +16,33 @@
 <footer class="bg-black text-white mt-5">
     <div class="container pt-4">
         <div class="row">
-            <div class="col-md-4">
-                <h3>Latest News</h3>
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin.
-                    </div>
-                </div>
-                <div class="media my-4">
-                    <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
-                         alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin.
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
+<!--            <div class="col-md-4">-->
+<!--                <h3>Latest News</h3>-->
+<!--                <div class="media">-->
+<!--                    <div class="media-body">-->
+<!--                        <h5 class="mt-0 mb-1">List-based media object</h5>-->
+<!--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+<!--                        sollicitudin.-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="media my-4">-->
+<!--                    <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
+<!--                         alt="Generic placeholder image">-->
+<!--                    <div class="media-body">-->
+<!--                        <h5 class="mt-0 mb-1">List-based media object</h5>-->
+<!--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+<!--                        sollicitudin.-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="media">-->
+<!--                    <div class="media-body">-->
+<!--                        <h5 class="mt-0 mb-1">List-based media object</h5>-->
+<!--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+<!--                        sollicitudin.-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="col-md-6">
                 <h3>Recent Tweets</h3>
                 <div class="media">
                     <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <h3>Get In Touch</h3>
                 <form action="">
                     <div class="form-group">
