@@ -956,3 +956,39 @@ div#intro {
 #movie-detail-tabs a.active {
 	color: #495057;
 }
+
+.select2-container {
+	margin-right: 0.5rem !important;
+}
+
+.select2-container .select2-selection--multiple {
+	border: 1px solid #ccc;
+	background: transparent;
+	color: #fff;
+	cursor: pointer;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+	border: 1px solid #ccc;
+}
+
+.select2-search__field {
+	cursor: pointer;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+	background: #141e30;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #fff;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+	color: #fff;
+}
