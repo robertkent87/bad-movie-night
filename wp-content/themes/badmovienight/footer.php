@@ -47,7 +47,7 @@
                     <?php dynamic_sidebar('footer_column_1'); ?>
                 <?php endif; ?>
             </div>
-            
+
             <div class="col-md-6" id="footer-contact">
                 <h3>Get In Touch</h3>
 	            <?php echo do_shortcode('[contact-form-7 id="55" title="Contact form 1"]'); ?>
