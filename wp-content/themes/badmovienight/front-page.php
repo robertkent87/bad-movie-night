@@ -21,36 +21,73 @@
     </div>
 
     <!-- Search Form -->
+    <?php
+        $genre_options = [];
+        $genres = get_terms(['taxonomy' => 'genre']);
+
+        foreach ($genres as $genre_term){
+            $genre_options[$genre_term->slug] = $genre_term->name;
+        }
+
+        $director_options = [];
+        $director_values = get_field_values('director', 'movie');
+
+        foreach ($director_values as $director_value){
+            $director_options[$director_value] = $director_value;
+        }
+
+        ksort($director_options);
+        
+        $year_options = [];
+        $year_values = get_field_values('year', 'movie');
+
+        foreach ($year_values as $year_value){
+            $year_options[intval($year_value)] = $year_value;
+        }
+        krsort($year_options);
+
+        $collection_options = [];
+        $collections = get_terms(['taxonomy' => 'collection']);
+    
+        foreach ($collections as $collection_term){
+            $collection_options[$collection_term->slug] = $collection_term->name;
+        }
+        ksort($collection_options);
+    ?>
     <form action="" class="form-inline justify-content-center" id="search-form">
         <label class="sr-only" for="keywords">Keywords</label>
         <input type="text" name="keywords" id="keywords" class="form-control mr-sm-2" placeholder="Keywords">
 
         <label class="sr-only" for="genres">Genre</label>
-        <select name="genres" id="genres" class="form-control mr-sm-2">
-            <option value="">Genres</option>
-            <option value=""></option>
-            <option value=""></option>
+        <select multiple name="genres" id="genres" class="mr-sm-2">
+            <option value="all">Genres</option>
+            <?php foreach ($genre_options as $key => $value): ?>
+                <option value="<?= $key ?>"><?= $value ?></option>
+            <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="director">Director</label>
-        <select name="director" id="director" class="form-control mr-sm-2">
-            <option value="">Joe Bloggs</option>
-            <option value="">Jane Doe</option>
-            <option value="">Some Person</option>
+        <select multiple name="director" id="director" class="mr-sm-2">
+            <option value="all">Director</option>
+	        <?php foreach ($director_options as $key => $value): ?>
+                <option value="<?= $key ?>"><?= $value ?></option>
+	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="year">Year</label>
-        <select name="year" id="year" class="form-control mr-sm-2">
-            <option value="">2018</option>
-            <option value="">2017</option>
-            <option value="">2016</option>
+        <select multiple name="year" id="year" class="mr-sm-2">
+            <option value="all">Year</option>
+	        <?php foreach ($year_options as $key => $value): ?>
+                <option value="<?= $key ?>"><?= $value ?></option>
+	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="collection">Collection</label>
-        <select name="collection" id="collection" class="form-control mr-sm-2">
-            <option value="">Christmas</option>
-            <option value="">80s</option>
-            <option value="">Heros</option>
+        <select multiple name="collection" id="collection" class="mr-sm-2">
+            <option value="all">Collection</option>
+	        <?php foreach ($collection_options as $key => $value): ?>
+                <option value="<?= $key ?>"><?= $value ?></option>
+	        <?php endforeach; ?>
         </select>
         <button type="submit" class="btn btn-primary">Filter</button>
     </form>

@@ -248,3 +248,25 @@
 	function posts_link_attributes() {
 		return 'class="page-link"';
 	}
+
+	/**
+	 * Get possible field values
+	 * @param $field_key
+	 * @param string $post_type
+	 * @return array $field_values
+	 */
+	function get_field_values($field_key, $post_type = 'post'){
+		$posts = get_posts([
+			'post_type' => $post_type,
+			'meta_key' => $field_key,
+			'posts_per_page' => -1,
+		]);
+
+		$field_values = [];
+
+		foreach ($posts as $post){
+			$field_values[] = trim(get_field($field_key, $post->ID));
+		}
+
+		return $field_values;
+	}
