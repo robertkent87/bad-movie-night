@@ -54,33 +54,33 @@
         }
         ksort($collection_options);
     ?>
-    <form action="" class="form-inline justify-content-center" id="search-form">
-        <label class="sr-only" for="keywords">Keywords</label>
-        <input type="text" name="keywords" id="keywords" class="mr-sm-2" placeholder="Keywords">
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" class="form-inline justify-content-center" id="search-form">
+<!--        <label class="sr-only" for="keywords">Keywords</label>-->
+<!--        <input type="text" name="keywords" id="keywords" class="mr-sm-2" placeholder="Keywords">-->
 
         <label class="sr-only" for="genres">Genre</label>
-        <select multiple name="genres" id="genres" class="mr-sm-2 select2" data-placeholder="Genre">
+        <select multiple name="genres[]" id="genres" class="mr-sm-2 select2" data-placeholder="Genre">
             <?php foreach ($genre_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
             <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="director">Director</label>
-        <select multiple name="director" id="director" class="mr-sm-2 select2" data-placeholder="Director">
+        <select multiple name="director[]" id="director" class="mr-sm-2 select2" data-placeholder="Director">
 	        <?php foreach ($director_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="year">Year</label>
-        <select multiple name="year" id="year" class="mr-sm-2 select2" data-placeholder="Year">
+        <select multiple name="year[]" id="year" class="mr-sm-2 select2" data-placeholder="Year">
 	        <?php foreach ($year_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="collection">Collection</label>
-        <select multiple name="collection" id="collection" class="mr-sm-2 select2" data-placeholder="Collection">
+        <select multiple name="collection[]" id="collection" class="mr-sm-2 select2" data-placeholder="Collection">
 	        <?php foreach ($collection_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
@@ -93,6 +93,13 @@
     <div class="row" id="movie-listing">
         <!-- Movie listing -->
 		<?php
+
+            $genre_filter = '';
+
+            if (isset($_POST['genres'])){
+                $genre_filter  = filter_input(INPUT_POST, 'genres', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+            }
+
 			$paged = (get_query_var('page')) ? get_query_var('page') : 1;
 			$args  = [
 				'post_type'      => 'movie',
@@ -102,6 +109,18 @@
 				'posts_per_page' => 12,
 				'paged'          => $paged
 			];
+
+			if ($genre_filter){
+			    $args['tax_query'] = [
+                    [
+                        'taxonomy' => 'genre',
+                        'field' => 'slug',
+                        'terms' => $genre_filter
+                    ]
+                ];
+            }
+
+            d($args);
 
 			$movies = new WP_Query($args);
 		?>
