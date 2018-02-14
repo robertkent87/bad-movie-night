@@ -42,7 +42,7 @@
         $year_values = get_field_values('year', 'movie');
 
         foreach ($year_values as $year_value){
-            $year_options[intval($year_value)] = $year_value;
+            $year_options[$year_value] = $year_value;
         }
         krsort($year_options);
 
@@ -72,8 +72,8 @@
 	        <?php endforeach; ?>
         </select>
 
-        <label class="sr-only" for="year">Year</label>
-        <select multiple name="year[]" id="year" class="mr-sm-2 select2" data-placeholder="Year">
+        <label class="sr-only" for="release-year">Year</label>
+        <select multiple name="release-year[]" id="release-year" class="mr-sm-2 select2" data-placeholder="Year">
 	        <?php foreach ($year_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
@@ -90,15 +90,31 @@
     </form>
     <!-- /Search Form -->
 
-    <div class="row" id="movie-listing">
+    <div id="movie-listing">
         <!-- Movie listing -->
 		<?php
-
             $genre_filter = '';
+            $director_filter = '';
+            $year_filter = '';
+            $collection_filter = '';
+
+            $meta_query = ['relation' => 'AND'];
 
             if (isset($_POST['genres'])){
                 $genre_filter  = filter_input(INPUT_POST, 'genres', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
             }
+
+            if (isset($_POST['director'])){
+                $director_filter = filter_input(INPUT_POST, 'director', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+            }
+
+            if (isset($_POST['release-year'])){
+                $year_filter = filter_input(INPUT_POST, 'release-year', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+            }
+
+			if (isset($_POST['collection'])){
+				$collection_filter  = filter_input(INPUT_POST, 'collection', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+			}
 
 			$paged = (get_query_var('page')) ? get_query_var('page') : 1;
 			$args  = [
@@ -110,17 +126,41 @@
 				'paged'          => $paged
 			];
 
-			if ($genre_filter){
-			    $args['tax_query'] = [
-                    [
-                        'taxonomy' => 'genre',
-                        'field' => 'slug',
-                        'terms' => $genre_filter
-                    ]
+			if ($genre_filter) {
+				$args['tax_query'][] =
+					[
+						'taxonomy' => 'genre',
+						'field'    => 'slug',
+						'terms'    => $genre_filter
+					];
+			}
+
+            if ($director_filter){
+			    $meta_query[] = [
+                    'key' => 'director',
+                    'value' => $director_filter,
+                    'compare' => 'IN'
                 ];
             }
 
-            d($args);
+           if ($year_filter){
+			    $meta_query[] = [
+                    'key' => 'year',
+                    'value' => $year_filter,
+                    'compare' => 'IN'
+                ];
+            }
+
+			if ($collection_filter) {
+				$args['tax_query'][] =
+					[
+						'taxonomy' => 'collection',
+						'field'    => 'slug',
+						'terms'    => $collection_filter
+					];
+			}
+
+            $args['meta_query'] = $meta_query;
 
 			$movies = new WP_Query($args);
 		?>
