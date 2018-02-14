@@ -1,0 +1,99 @@
+=== CF7 Invisible reCAPTCHA ===
+Contributors: vsourz1td
+Tags: CF7-Invisible-reCAPTCHA,contact-form-7-invisible-reCAPTCHA,invisible-reCAPTCHA
+Requires at least: 4.5
+Tested up to: 4.9.1
+Stable tag: 1.1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+CF7 Invisible reCAPTCHA plugin is an effective solution that secure your Contact form 7 forms on WordPress websites from spam entries while letting human pass over easily.
+
+== Description ==
+
+CF7 Invisible reCAPTCHA plugin is an effective solution that secure your Contact form 7 forms on WordPress websites from spam entries while letting human pass over easily.
+
+Just a single click they’ll confirm they are not a robot.
+
+Activated only in cases where Google suspects that the visitor is not a human.
+
+This plugin utilizes the popular anti-spam library, Google invisible reCAPTCHA, to help your blog stay clear of spams.
+
+All it takes is 2 easy step to make your website stand out from rest of your competitors.
+
+1. Install the plugin.
+2. Add site and secret key.
+
+It's easy to use.
+
+Read **How to use?** section to find out more about the CF7 Invisible reCAPTCHA configurations 
+
+**Need Support?** <mehul@vsourz.com>
+
+= Features =
+
+* Easy and simple settings for quick setup without change in code.
+* Option to **Enable/Disable Protection** for Contact Form 7.
+* Manage to **hide Google Captcha(reCAPTCHA)** for particular form.
+* Compatible with latest WordPress version.
+* Mange to **badge position display option**.
+
+
+= How to use? =
+
+1. Install Plugin via WordPress Admin - Go to Admin > Plugins > Add New.
+2. Add CF7 Invisible reCAPTCHA Go To CF7 Invisible reCAPTCHA.
+3. Add site and secret key.
+
+
+= License =
+GPLv2 - https://www.gnu.org/licenses/gpl-2.0.html
+
+
+== Installation ==
+
+= Install via WordPress Admin =
+1. Ready the zip file of the plugin
+2. Go to Admin > Plugins > Add New
+3. On the upper portion click the Upload link
+4. Using the file upload field, upload the plugin zip file here and activate the plugin
+
+= Install via FTP =
+1. First unzip the plugin file
+2. Using FTP go to your server's wp-content/plugins directory
+3. Upload the unzipped plugin here
+4. Once finished login into your WP Admin and go to Admin > Plugins
+5. Look for CF7 Invisible reCAPTCHA and activate it
+
+= Usage =
+1. Add site and secret key
+
+
+== Frequently Asked Questions ==
+= Can I Add Invisible reCAPTCHA in more than one form on same page? =
+Yes.
+
+= Can I remove Invisible reCAPTCHA in particular form? =
+Yes, we have provided exclude functionality to remove invisible reCAPTCHA in particular form.
+
+= Can I Enable/Disable Invisible reCAPTCHA Protection for Contact Form 7? =
+Yes, we have provide functionality to Enable/Disable Invisible reCAPTCHA Protection for all Contact Form.
+
+= What to do if CF7 Invisible reCAPTCHA plugin not work? =
+If plugin does not work on website, contact our support Team via following email address: <mehul@vsourz.com>.
+If you think, that you found a bug in our CF7 Invisible reCAPTCHA plugin or have any question contact us at <mehul@vsourz.com>. Our support team will solve within 24 hours.
+
+
+== Screenshots ==
+1. General Settings.
+
+== Changelog ==
+= 1.1.0 =
+* Fix drop down issue.
+
+= 1.0.0 = 
+* Initial
+
+== Upgrade Notice ==
+
+See changelog
