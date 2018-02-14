@@ -56,40 +56,37 @@
     ?>
     <form action="" class="form-inline justify-content-center" id="search-form">
         <label class="sr-only" for="keywords">Keywords</label>
-        <input type="text" name="keywords" id="keywords" class="form-control mr-sm-2" placeholder="Keywords">
+        <input type="text" name="keywords" id="keywords" class="mr-sm-2" placeholder="Keywords">
 
         <label class="sr-only" for="genres">Genre</label>
-        <select multiple name="genres" id="genres" class="mr-sm-2">
-            <option value="all">Genres</option>
+        <select multiple name="genres" id="genres" class="mr-sm-2 select2" data-placeholder="Genre">
             <?php foreach ($genre_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
             <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="director">Director</label>
-        <select multiple name="director" id="director" class="mr-sm-2">
-            <option value="all">Director</option>
+        <select multiple name="director" id="director" class="mr-sm-2 select2" data-placeholder="Director">
 	        <?php foreach ($director_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="year">Year</label>
-        <select multiple name="year" id="year" class="mr-sm-2">
-            <option value="all">Year</option>
+        <select multiple name="year" id="year" class="mr-sm-2 select2" data-placeholder="Year">
 	        <?php foreach ($year_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
         </select>
 
         <label class="sr-only" for="collection">Collection</label>
-        <select multiple name="collection" id="collection" class="mr-sm-2">
-            <option value="all">Collection</option>
+        <select multiple name="collection" id="collection" class="mr-sm-2 select2" data-placeholder="Collection">
 	        <?php foreach ($collection_options as $key => $value): ?>
                 <option value="<?= $key ?>"><?= $value ?></option>
 	        <?php endforeach; ?>
         </select>
-        <button type="submit" class="btn btn-primary">Filter</button>
+        <button type="submit" class="btn btn-primary" name="filter" id="filter">Filter</button>
+        <button type="submit" class="btn btn-secondary" name="reset" id="reset">Clear</button>
     </form>
     <!-- /Search Form -->
 
