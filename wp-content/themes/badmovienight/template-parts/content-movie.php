@@ -72,7 +72,7 @@
                 <small class="text-muted">(<?php the_field('year') ?>)</small>
             </h1>
             
-			<p class="text-muted"><?php the_field('synopsis') ?></p>
+			<p><em><?php the_field('synopsis') ?></em></p>
 	        <?php the_content(); ?>
 
             <ul class="nav nav-tabs mb-3" id="movie-detail-tabs" role="tablist">
