@@ -74,21 +74,7 @@
             </div>
             <div class="col-md-6" id="footer-contact">
                 <h3>Get In Touch</h3>
-                <form action="">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" class="form-control"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send</button>
-                </form>
+	            <?php echo do_shortcode('[contact-form-7 id="55" title="Contact form 1"]'); ?>
             </div>
         </div>
     </div>
