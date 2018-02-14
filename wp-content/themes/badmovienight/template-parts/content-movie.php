@@ -71,7 +71,9 @@
             <h1 class="mt-0"><?php the_title(); ?>
                 <small class="text-muted">(<?php the_field('year') ?>)</small>
             </h1>
-			<?php the_field('synopsis') ?>
+            
+			<p class="text-muted"><?php the_field('synopsis') ?></p>
+	        <?php the_content(); ?>
 
             <ul class="nav nav-tabs mb-3" id="movie-detail-tabs" role="tablist">
                 <li class="nav-item">
@@ -99,9 +101,6 @@
                             <div class="col"><?= $actor->name; ?></div>
 						<?php endforeach; ?>
                     </div>
-
-                    <h3>Why it's bad</h3>
-					<?php the_content(); ?>
 
                 </div>
                 <div class="tab-pane" id="user_reviews" role="tabpanel">
