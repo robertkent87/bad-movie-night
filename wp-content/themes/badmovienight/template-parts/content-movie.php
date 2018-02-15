@@ -42,8 +42,16 @@
 	?>
     <div class="row" id="movie-detail">
         <div class="col-md-3">
-			<?php the_post_thumbnail('large', ['class' => 'img-fluid']) ?>
-            <table class="table borderless">
+            <!-- Mobile header -->
+            <h1 class="mt-0 d-md-none d-lg-none d-xl-none"><?php the_title(); ?>
+                <small class="text-muted">(<?php the_field('year') ?>)</small>
+            </h1>
+            <!-- /Mobile header -->
+
+			<?php the_post_thumbnail('large', ['class' => 'img-fluid mb-2-sm']) ?>
+
+            <!-- Desktop meta -->
+            <table class="table borderless d-none d-md-block">
                 <tr>
                     <th>Rating</th>
                     <td>4.1</td>
@@ -65,15 +73,43 @@
                     <td><?= $collection_list; ?></td>
                 </tr>
             </table>
+            <!-- /Desktop meta -->
         </div>
 
         <div class="col-md-9">
-            <h1 class="mt-0"><?php the_title(); ?>
+            <!-- Desktop title -->
+            <h1 class="d-none d-md-block mt-0"><?php the_title(); ?>
                 <small class="text-muted">(<?php the_field('year') ?>)</small>
             </h1>
+            <!-- /Desktop title -->
             
 			<p><em><?php the_field('synopsis') ?></em></p>
 	        <?php the_content(); ?>
+
+            <!-- Mobile meta -->
+            <table class="table borderless d-md-none d-lg-none d-xl-none">
+                <tr>
+                    <th>Rating</th>
+                    <td>4.1</td>
+                </tr>
+                <tr>
+                    <th>Genres</th>
+                    <td><?= $genre_list; ?></td>
+                </tr>
+                <tr>
+                    <th>Runtime</th>
+                    <td><?php the_field('runtime'); ?></td>
+                </tr>
+                <tr>
+                    <th>Director</th>
+                    <td><?php the_field('director'); ?></td>
+                </tr>
+                <tr>
+                    <th>Collection</th>
+                    <td><?= $collection_list; ?></td>
+                </tr>
+            </table>
+            <!-- /Mobile meta -->
 
             <ul class="nav nav-tabs mb-3" id="movie-detail-tabs" role="tablist">
                 <li class="nav-item">
