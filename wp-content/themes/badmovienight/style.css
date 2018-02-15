@@ -910,6 +910,32 @@ div#intro {
 	margin-bottom: 2rem;
 }
 
+/* Submit movie form */
+#submit-movie-form input[type=text],
+#submit-movie-form input[type=url],
+#submit-movie-form textarea {
+	background: rgba(255,255,255,0.1);
+	color: #fdfdfd;
+	padding: .375rem .75rem;
+}
+
+#submit-movie-form br {
+	display: none;
+}
+
+#submit-movie-form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #bbb;
+	opacity: 1; /* Firefox */
+}
+
+#submit-movie-form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #bbb;
+}
+
+#submit-movie-form ::-ms-input-placeholder { /* Microsoft Edge */
+	color: #bbb;
+}
+
 /* Movie grid */
 #movie-listing .movie .movie-title {
   position: absolute;
