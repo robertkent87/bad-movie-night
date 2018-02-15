@@ -48,7 +48,7 @@
             </h1>
             <!-- /Mobile header -->
 
-			<?php the_post_thumbnail('large', ['class' => 'img-fluid mb-2-sm']) ?>
+			<?php the_post_thumbnail('large', ['class' => 'img-fluid mb-4']) ?>
 
             <!-- Desktop meta -->
             <table class="table borderless d-none d-md-block">
