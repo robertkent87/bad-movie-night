@@ -2,8 +2,8 @@
 Contributors: vsourz1td
 Tags: CF7-Invisible-reCAPTCHA,contact-form-7-invisible-reCAPTCHA,invisible-reCAPTCHA
 Requires at least: 4.5
-Tested up to: 4.9.1
-Stable tag: 1.1.0
+Tested up to: 4.9.4
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,17 +34,18 @@ Read **How to use?** section to find out more about the CF7 Invisible reCAPTCHA 
 
 * Easy and simple settings for quick setup without change in code.
 * Option to **Enable/Disable Protection** for Contact Form 7.
-* Manage to **hide Google Captcha(reCAPTCHA)** for particular form.
-* Compatible with latest WordPress version.
-* Mange to **badge position display option**.
-
+* Easy to **Exlude** Invisible reCAPTCHA for particular form.
+* Option to **Show/Hide** Google reCaptcha Badge.
+* Easy to Manage **Badge Position**.
+* Easy to validate your **Site Key** and **Secret key** from CF7 Invisible reCAPTCHA menu.
 
 = How to use? =
 
 1. Install Plugin via WordPress Admin - Go to Admin > Plugins > Add New.
 2. Add CF7 Invisible reCAPTCHA Go To CF7 Invisible reCAPTCHA.
-3. Add site and secret key.
-
+3. Enable Protection for Contact Form 7.
+3. Add Site Key and Secret Key.
+4. Validate Site Key and Secret Key.
 
 = License =
 GPLv2 - https://www.gnu.org/licenses/gpl-2.0.html
@@ -88,6 +89,11 @@ If you think, that you found a bug in our CF7 Invisible reCAPTCHA plugin or have
 1. General Settings.
 
 == Changelog ==
+
+= 1.2.0 =
+* **Repositioning**: We have set the 'CF7 Invisible reCAPTCHA' menu under Contact Form menu.
+* **Validate Credentials**: You can validate your Site Key and Secret Key into 'CF7 Invisible reCAPTCHA' menu.
+
 = 1.1.0 =
 * Fix drop down issue.
 
