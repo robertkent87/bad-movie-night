@@ -913,26 +913,33 @@ div#intro {
 /* Submit movie form */
 #submit-movie-form input[type=text],
 #submit-movie-form input[type=url],
-#submit-movie-form textarea {
+#submit-movie-form textarea,
+#contact-form input[type=text],
+#contact-form input[type=email],
+#contact-form textarea {
 	background: rgba(255,255,255,0.1);
 	color: #fdfdfd;
 	padding: .375rem .75rem;
 }
 
-#submit-movie-form br {
+#submit-movie-form br,
+#contact-form br {
 	display: none;
 }
 
-#submit-movie-form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+#submit-movie-form ::placeholder,
+#contact-form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: #bbb;
 	opacity: 1; /* Firefox */
 }
 
-#submit-movie-form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+#submit-movie-form :-ms-input-placeholder,
+#contact-form :-ms-input-placeholder { /* Internet Explorer 10-11 */
 	color: #bbb;
 }
 
-#submit-movie-form ::-ms-input-placeholder { /* Microsoft Edge */
+#submit-movie-form ::-ms-input-placeholder,
+#contact-form ::-ms-input-placeholder { /* Microsoft Edge */
 	color: #bbb;
 }
 
