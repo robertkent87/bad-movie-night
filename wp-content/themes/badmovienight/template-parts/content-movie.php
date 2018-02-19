@@ -200,7 +200,7 @@
 <?php else: ?>
     <article class="col-md-3 movie clearfix" id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail('list-thumb', ['class' => 'img-fluid']); ?>
+			<?php the_post_thumbnail('list-thumb', ['class' => 'img-fluid mb-3']); ?>
         </a>
         <p class="movie-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
     </article>
