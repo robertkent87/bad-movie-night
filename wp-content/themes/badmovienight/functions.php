@@ -42,7 +42,7 @@
 			 */
 			add_theme_support('post-thumbnails');
 
-			add_image_size('list-thumb', 526, 788, true);
+			add_image_size('list-thumb', 510, 764, true);
 
 			// This theme uses wp_nav_menu() in one location.
 			register_nav_menus(array(
