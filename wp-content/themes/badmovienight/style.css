@@ -489,11 +489,11 @@ a {
 }
 
 a:visited {
-	color: purple;
+	color: royalblue;
 }
 
 a:hover, a:focus, a:active {
-	color: midnightblue;
+	color: #7c97ea;
 }
 
 a:focus {
@@ -897,6 +897,14 @@ html, body {
 
 nav.navbar {
 	background: transparent !important;
+}
+
+.btn-outline-light:visited {
+	color: #fdfdfd;
+}
+
+.btn-outline-light:hover {
+	color: #212529;
 }
 
 /* Intro */
