@@ -943,6 +943,23 @@ div#intro {
 	color: #bbb;
 }
 
+.btn-ghost-blue {
+	color: #74b9ff !important;
+	background: none !important;
+	font-size: 1.1rem !important;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid #74b9ff !important;
+	transition: all 0.2s ease;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+}
+
+.btn-ghost-blue:hover {
+	background: #007bff !important;
+	color: #fdfdfd !important;
+}
+
 /* Movie grid */
 #movie-listing .movie .movie-title {
   position: absolute;
