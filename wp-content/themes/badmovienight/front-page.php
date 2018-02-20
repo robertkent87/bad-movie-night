@@ -128,7 +128,7 @@
 				'post_type'      => 'movie',
 				'post_status'    => 'publish',
 				'orderby'        => 'date',
-				'order'          => 'ASC',
+				'order'          => 'DESC',
 				'posts_per_page' => 12,
 				'paged'          => $paged
 			];
