@@ -18,6 +18,9 @@
             <div class="col-md-8">
                 <header class="entry-header">
 		            <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+                    <p class="news-date">
+                        <small><?php print get_the_date('l, F j Y') ?></small>
+                    </p>
                 </header><!-- .entry-header -->
 				<?php the_content() ?>
                 <p><a href="<?php print get_field('link') ?>" target="_blank" class="btn btn-outline-light">Read more &raquo;</a></p>
@@ -26,6 +29,9 @@
             <div class="col">
                 <header class="entry-header">
 		            <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+                    <p class="news-date">
+                        <small><?php print get_the_date('l, F j Y') ?></small>
+                    </p>
                 </header><!-- .entry-header -->
 				<?php the_content() ?>
                 <p><a href="<?php get_field('link') ?>">Read more &raquo;</a></p>
