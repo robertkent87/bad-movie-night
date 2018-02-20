@@ -889,9 +889,9 @@ html, body {
 /* Background gradient */
 html, body {
 	background: #141e30; /* Old browsers */
-	background: -moz-linear-gradient(left, #141e30 0%, #243b55 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, #141e30 0%,#243b55 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, #141e30 0%,#243b55 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: url('images/bg-image-blur.png') center top no-repeat, -moz-linear-gradient(left, #141e30 0%, #243b55 100%); /* FF3.6-15 */
+	background: url('images/bg-image-blur.png') center top no-repeat, -webkit-linear-gradient(left, #141e30 0%,#243b55 100%); /* Chrome10-25,Safari5.1-6 */
+	background: url('images/bg-image-blur.png') center top no-repeat, linear-gradient(to right, #141e30 0%,#243b55 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141e30', endColorstr='#243b55',GradientType=1 ); /* IE6-9 */
 }
 
