@@ -20,7 +20,7 @@
 		            <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
                 </header><!-- .entry-header -->
 				<?php the_content() ?>
-                <p><a href="<?php get_field('link') ?>">Read more &raquo;</a></p>
+                <p><a href="<?php print get_field('link') ?>" target="_blank" class="btn btn-outline-light">Read more &raquo;</a></p>
             </div>
 		<?php else: ?>
             <div class="col">
