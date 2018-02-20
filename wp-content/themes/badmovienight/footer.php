@@ -19,8 +19,20 @@
             <div class="col-md-4">
                 <h3>Latest News</h3>
 
-				<?php if (have_posts()): ?>
-					<?php while (have_posts()) : the_post(); ?>
+                <?php
+	                $news_args  = [
+		                'post_type'      => 'post',
+		                'post_status'    => 'publish',
+		                'orderby'        => 'date',
+		                'order'          => 'DESC',
+		                'posts_per_page' => 3,
+	                ];
+
+	                $news_articles = new WP_Query($news_args);
+                ?>
+
+				<?php if ($news_articles->have_posts()): ?>
+					<?php while ($news_articles->have_posts()) : $news_articles->the_post(); ?>
                         <div class="media my-4">
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1"><a href="<?php print get_field('link') ?>" target="_blank" class=""><?php the_title(); ?></a></h5>
@@ -30,6 +42,7 @@
                             </div>
                         </div>
 					<?php endwhile; // End of the loop.?>
+					<?php wp_reset_postdata(); ?>
 				<?php else: ?>
                     <p>No news found</p>
 				<?php endif; ?>
