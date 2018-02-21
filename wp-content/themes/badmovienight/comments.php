@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area mt-5">
 
 	<?php
 	// You can start editing here -- including this comment!
@@ -66,7 +66,17 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+	comment_form([
+        'title_reply' => __('Leave a comment'),
+        'comment_notes_before' => '',
+        'comment_field' => '<div class="form-group"><label for="comment" class="sr-only">'.__('Comment').'</label><textarea name="comment" id="comment" cols="40" rows="5" class="form-control" aria-invalid="false" placeholder="'.__('Your comment').'"></textarea></div>',
+        'fields' => apply_filters('comment_form_default_fields', [
+            'author' => '<div class="form-group"><label class="sr-only">'.__('Your name').'</label><br><input type="text" name="author" id="author" value="' . esc_attr( $commenter['comment_author'] ) . '" size="40" class="form-control" ' . $aria_req . ' placeholder="'.__('Your name').'"></span></div>',
+            'email' => '<div class="form-group"><label class="sr-only">'.__('Your email').'</label><br><input type="email" name="email" id="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="40" class="form-control" ' . $aria_req . ' placeholder="'.__('Your email').'"></span></div>',
+            'url' => '',
+        ]),
+        'class_submit' => 'btn btn-primary',
+    ]);
 	?>
 
 </div><!-- #comments -->

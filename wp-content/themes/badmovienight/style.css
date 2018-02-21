@@ -397,7 +397,7 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button,
+/*button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -427,7 +427,7 @@ input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus {
 	border-color: #aaa #bbb #bbb;
-}
+}*/
 
 input[type="text"],
 input[type="email"],
@@ -924,29 +924,36 @@ div#intro {
 #submit-movie-form textarea,
 #contact-form input[type=text],
 #contact-form input[type=email],
-#contact-form textarea {
+#contact-form textarea,
+#commentform input[type=text],
+#commentform input[type=email],
+#commentform textarea {
 	background: rgba(255,255,255,0.1);
 	color: #fdfdfd;
 	padding: .375rem .75rem;
 }
 
 #submit-movie-form br,
+#commentform br,
 #contact-form br {
 	display: none;
 }
 
 #submit-movie-form ::placeholder,
+#commentform ::placeholder,
 #contact-form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: #bbb;
 	opacity: 1; /* Firefox */
 }
 
 #submit-movie-form :-ms-input-placeholder,
+#commentform :-ms-input-placeholder,
 #contact-form :-ms-input-placeholder { /* Internet Explorer 10-11 */
 	color: #bbb;
 }
 
 #submit-movie-form ::-ms-input-placeholder,
+#commentform ::-ms-input-placeholder,
 #contact-form ::-ms-input-placeholder { /* Microsoft Edge */
 	color: #bbb;
 }
