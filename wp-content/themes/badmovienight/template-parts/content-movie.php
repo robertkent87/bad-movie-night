@@ -56,10 +56,12 @@
 
             <!-- Desktop meta -->
             <table class="table borderless d-none d-md-block">
+	            <?php if (get_field('imdb_rating')): ?>
                 <tr>
                     <th>Rating</th>
-                    <td>4.1</td>
+                    <td><?php the_field('imdb_rating'); ?></td>
                 </tr>
+                <?php endif; ?>
                 <tr>
                     <th>Genres</th>
                     <td><?= $genre_list; ?></td>
