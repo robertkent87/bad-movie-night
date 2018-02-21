@@ -67,7 +67,7 @@ if ( post_password_required() ) {
 	endif; // Check for have_comments().
 
 	comment_form([
-        'title_reply' => __('Leave a comment'),
+        'title_reply' => __('Leave your comment'),
         'comment_notes_before' => '',
         'comment_field' => '<div class="form-group"><label for="comment" class="sr-only">'.__('Comment').'</label><textarea name="comment" id="comment" cols="40" rows="5" class="form-control" aria-invalid="false" placeholder="'.__('Your comment').'"></textarea></div>',
         'fields' => apply_filters('comment_form_default_fields', [
