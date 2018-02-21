@@ -1095,3 +1095,20 @@ select#release-year {
 ::-ms-input-placeholder { /* Microsoft Edge */
 	color: #fff;
 }
+
+/* Comments styling */
+.comment-list {
+	margin-left: 0;
+}
+
+.comment {
+	list-style: none;
+}
+
+.comment-metadata {
+	font-size: 0.8rem;
+}
+
+.comment-content {
+	margin-top: 15px;
+}
