@@ -1021,11 +1021,11 @@ div#intro {
 
 
 .movie-rating.bad {
-	background-color: #c0392b;
+	background-color: #DC3023;
 }
 
 .movie-rating.poor {
-	background-color: #d35400;
+	background-color: #FFA631;
 }
 
 .movie-rating.good {

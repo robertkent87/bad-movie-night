@@ -219,7 +219,7 @@
 				case $score <= 3:
 					$rating = 'bad';
 					break;
-				case $score <= 5;
+				case $score <= 6;
 					$rating = 'poor';
 					break;
 				default:
