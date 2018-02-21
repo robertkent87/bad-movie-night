@@ -1006,6 +1006,31 @@ div#intro {
   color: #000;
 }
 
+.movie-rating {
+	position: absolute;
+	top: 5%;
+	left: 15px;
+	padding: 4% 4% 4% 6%;
+	background-color: #27ae60;
+	color: #fdfdfd;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 700;
+	font-size: 1.2rem;
+	box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.5);
+}
+
+.movie-rating.bad {
+	background-color: #c0392b;
+}
+
+.movie-rating.poor {
+	background-color: #d35400;
+}
+
+.movie-rating.good {
+	background-color: #27ae60;
+}
+
 #pagination {
 	width: 100%;
 	margin: 1rem auto;

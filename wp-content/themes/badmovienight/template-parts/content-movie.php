@@ -11,9 +11,9 @@
 
 <?php if ( ! is_front_page()) : ?>
 	<?php
-	$genre_list = strip_tags(get_the_term_list($post->ID, 'genre', '', ', ', ''));
+	$genre_list      = strip_tags(get_the_term_list($post->ID, 'genre', '', ', ', ''));
 	$collection_list = strip_tags(get_the_term_list($post->ID, 'collection', '', ', ', ''));
-	$actors = get_the_terms($post->ID, 'actors');
+	$actors          = get_the_terms($post->ID, 'actors');
 
 	// get iframe HTML
 	$iframe = get_field('trailer');
@@ -210,6 +210,23 @@
 				'alt'   => get_the_title()
 			]); ?>
         </a>
+		<?php if (get_field('imdb_rating')): ?>
+			<?php
+			$score = get_field('imdb_rating');
+			switch ($score) {
+				case $score <= 3:
+					$rating = 'bad';
+					break;
+				case $score <= 5;
+					$rating = 'poor';
+					break;
+				default:
+					$rating = 'good';
+					break;
+			}
+			?>
+            <span class="movie-rating <?= $rating ?>"><?= $score ?></span>
+		<?php endif; ?>
         <p class="movie-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
     </article>
 <?php endif; ?>
