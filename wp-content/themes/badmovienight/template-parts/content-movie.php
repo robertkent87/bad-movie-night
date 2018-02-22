@@ -29,7 +29,10 @@
 	$params = array(
 		'controls' => 1,
 		'hd'       => 1,
-		'autohide' => 1
+		'autohide' => 1,
+        'modestbranding' => 1,
+        'rel' => 0,
+        'showinfo' => 0,
 	);
 
 	$new_src = add_query_arg($params, $src);
