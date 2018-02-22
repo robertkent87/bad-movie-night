@@ -121,6 +121,7 @@ mark {
 
 small {
 	font-size: 80%;
+	color: var(--main-color-light);
 }
 
 sub,
@@ -256,6 +257,20 @@ th {
 }
 
 /*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+
+:root {
+	--main-color: #fdfdfd;
+	/*--main-color-light: #627cac;*/
+	--main-color-light: #9eb2d6;
+	--main-dark-blue: #141e30;
+	--main-light-blue: #243b55;
+	--main-link-color: #19B5FE;
+	--main-link-hover: #89C4F4;
+}
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 body,
@@ -323,6 +338,15 @@ mark, ins {
 
 big {
 	font-size: 125%;
+}
+
+th {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.text-muted {
+	color: var(--main-color-light) !important;
 }
 
 /*--------------------------------------------------------------
@@ -485,15 +509,27 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: var(--main-link-color);
+}
+
+.news-teaser a,
+.news-teaser a:visited {
+	color: var(--main-color);
+}
+
+.navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-link {
+	color: var(--main-color-light);
 }
 
 a:visited {
-	color: royalblue;
+	color: var(--main-link-color);
 }
 
-a:hover, a:focus, a:active {
-	color: #7c97ea;
+a:hover,
+.news-teaser a:hover {
+	color: var(--main-link-hover);
+	text-decoration: none;
 }
 
 a:focus {
@@ -856,7 +892,7 @@ object {
 
 /* General */
 html, body {
-	color: #fdfdfd;
+	color: var(--main-color);
 }
 
 .select2-results__option {
@@ -882,6 +918,10 @@ ul.select2-selection__rendered:after {
 	color: #fdfdfd;
 }
 
+.navbar-nav .current-menu-item {
+	border-bottom: 2px solid #fdfdfd;
+}
+
 /* Responsive embeds */
 .embed-container {
 	position: relative;
@@ -903,10 +943,10 @@ ul.select2-selection__rendered:after {
 
 /* Background gradient */
 html, body {
-	background: #141e30; /* Old browsers */
-	background: url('images/bg-image-blur.png') center top no-repeat, -moz-linear-gradient(left, #141e30 0%, #243b55 100%); /* FF3.6-15 */
-	background: url('images/bg-image-blur.png') center top no-repeat, -webkit-linear-gradient(left, #141e30 0%,#243b55 100%); /* Chrome10-25,Safari5.1-6 */
-	background: url('images/bg-image-blur.png') center top no-repeat, linear-gradient(to right, #141e30 0%,#243b55 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: var(--main-dark-blue); /* Old browsers */
+	background: url('images/bg-image-blur.png') center top no-repeat, -moz-linear-gradient(left, var(--main-dark-blue) 0%, var(--main-light-blue) 100%); /* FF3.6-15 */
+	background: url('images/bg-image-blur.png') center top no-repeat, -webkit-linear-gradient(left, var(--main-dark-blue) 0%,var(--main-light-blue) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: url('images/bg-image-blur.png') center top no-repeat, linear-gradient(to right, var(--main-dark-blue) 0%,var(--main-light-blue) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141e30', endColorstr='#243b55',GradientType=1 ); /* IE6-9 */
 }
 

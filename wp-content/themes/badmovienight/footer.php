@@ -33,7 +33,7 @@
 
 				<?php if ($news_articles->have_posts()): ?>
 					<?php while ($news_articles->have_posts()) : $news_articles->the_post(); ?>
-                        <div class="media my-4">
+                        <div class="media my-4 news-teaser">
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1"><a href="<?php print get_field('link') ?>" target="_blank" class=""><?php the_title(); ?></a></h5>
                                 <p class="news-date">
