@@ -16,6 +16,7 @@
 			<label for="imdb-box-title" style="display: none">Title</label>
 			<input type="text" name="imdb-box-title" id="imdb-box-title" value="" placeholder="Search by title..." />
 			<button id="scrape-imdb" class="button" type="submit">Search IMDb</button>
+			<img src="<?php print plugins_url('img/ajax-loader.gif', __FILE__) ?>" alt="" class="loading" />
 		</div>
 		<?php
 	}
