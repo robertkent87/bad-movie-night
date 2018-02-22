@@ -24,6 +24,11 @@ jQuery(document).ready(function($) {
         $("div[data-name='director']").find('input').val(movie_data.director);
         $("div[data-name='runtime']").find('input').val(movie_data.runtime);
         $("div[data-name='imdb_rating']").find('input').val(movie_data.rating);
+
+        $('#new-tag-genre').val(movie_data.genre);
+        $('#new-tag-actors').val(movie_data.actors);
+        $('.tagadd').click();
+
       }
     });
   })

@@ -59,6 +59,8 @@
 				'director' => $api_response->Director,
 				'runtime' => $api_response->Runtime,
 				'rating' => $api_response->imdbRating,
+				'genre' => $api_response->Genre,
+				'actors' => $api_response->Actors
 			];
 		}
 
