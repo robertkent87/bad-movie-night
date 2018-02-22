@@ -14,7 +14,6 @@ jQuery(document).ready(function($) {
         console.error('IMDb AJAX error');
         console.log(response);
       } else {
-        // TODO: Do stuff with your response
         console.log('AJAX successful');
         console.log($.parseJSON(response));
 
