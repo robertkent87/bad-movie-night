@@ -16,7 +16,7 @@
 
     <div id="intro">
         <h1>The worst movies for your night in</h1>
-        <p class="lead">Whether you're having friends over bored on your own, you'll find the best cinematic garbage
+        <p class="lead">Whether you're having friends over or bored on your own, you'll find the best cinematic garbage
             here</p>
     </div>
 
