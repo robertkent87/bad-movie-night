@@ -127,47 +127,44 @@
             </table>
             <!-- /Mobile meta -->
 
-            <div class="mt-5" id="movie-media">
-                <h2>Movie media</h2>
+			<?php if (get_field('trailer') || get_field('images')): ?>
+                <div class="mt-5" id="movie-media">
+                    <h2>Movie media</h2>
 
-				<?php if (get_field('trailer')): ?>
-                    <div class="embed-container"><?= $iframe; ?></div>
-				<?php endif; ?>
+					<?php if (get_field('trailer')): ?>
+                        <div class="embed-container"><?= $iframe; ?></div>
+					<?php endif; ?>
 
-				<?php if (get_field('images')): ?>
-                    <div class="simple-lightbox mt-3">
-						<?php foreach (get_field('images') as $image): ?>
-                            <a href="<?php print $image['url'] ?>" class="d-inline-block mb-1">
-                                <img src="<?php print $image['sizes']['gallery-thumb'] ?>"
-                                     alt="<?php print $image['alt'] ?>">
-                            </a>
-						<?php endforeach; ?>
+					<?php if (get_field('images')): ?>
+                        <div class="simple-lightbox mt-3">
+							<?php foreach (get_field('images') as $image): ?>
+                                <a href="<?php print $image['url'] ?>" class="d-inline-block mb-1">
+                                    <img src="<?php print $image['sizes']['gallery-thumb'] ?>"
+                                         alt="<?php print $image['alt'] ?>">
+                                </a>
+							<?php endforeach; ?>
+                        </div>
+					<?php endif; ?>
+                </div>
+			<?php endif; ?>
+
+			<?php if (have_rows('watch_options')): ?>
+                <div class="mt-5" id="stream-options">
+                    <h2 class="mb-3">Watch Options</h2>
+
+                    <div class="row">
+						<?php while (have_rows('watch_options')): the_row(); ?>
+							<?php
+							$watch_location_field = get_sub_field_object('watch_location');
+							$watch_location_value = $watch_location_field['value'];
+							$watch_location_label = $watch_location_field['choices'][$watch_location_value];
+							?>
+                            <div class="col"><i class="icofont icofont-brand-<?= $watch_location_value ?>"></i><a href="<?php the_sub_field('watch_link'); ?>"
+                                                target="_blank"><?= $watch_location_label; ?></a></div>
+						<?php endwhile; ?>
                     </div>
-				<?php endif; ?>
-            </div>
-
-            <div class="mt-5" id="stream-options">
-                <h2>Watch Options</h2>
-                <p>Coming in a later release...</p>
-                <!--                    <table class="table borderless">-->
-                <!--                        <tr>-->
-                <!--                            <th>Netflix</th>-->
-                <!--                            <td>https://www.link.com</td>-->
-                <!--                        </tr>-->
-                <!--                        <tr>-->
-                <!--                            <th>Amazon</th>-->
-                <!--                            <td>https://www.link.com</td>-->
-                <!--                        </tr>-->
-                <!--                        <tr>-->
-                <!--                            <th>YouTube</th>-->
-                <!--                            <td>https://www.link.com</td>-->
-                <!--                        </tr>-->
-                <!--                        <tr>-->
-                <!--                            <th>Other</th>-->
-                <!--                            <td>https://www.link.com</td>-->
-                <!--                        </tr>-->
-                <!--                    </table>-->
-            </div>
+                </div>
+			<?php endif; ?>
 
             <div class="mt-5" id="user-reviews">
                 <h2>User Reviews</h2>

@@ -141,6 +141,7 @@
         wp_enqueue_style('open_sans', 'https://fonts.googleapis.com/css?family=Open+Sans');
 //        wp_enqueue_style('signika', 'https://fonts.googleapis.com/css?family=Signika:400,700');
         wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
+        wp_enqueue_style('icofont', get_template_directory_uri() . '/css/icofont.css');
 
         // Simple Lightbox
 		wp_enqueue_style('simple-lightbox', get_template_directory_uri() . '/css/simplelightbox.min.css');

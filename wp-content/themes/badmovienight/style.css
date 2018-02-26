@@ -1200,3 +1200,12 @@ select#release-year {
 .comment-content {
 	margin-top: 15px;
 }
+
+/* Watch icons */
+.icofont {
+	font-size: 1.4rem;
+	border: 1px solid;
+	padding: 4px 6px;
+	border-radius: 5px;
+	margin-right: 8px;
+}
