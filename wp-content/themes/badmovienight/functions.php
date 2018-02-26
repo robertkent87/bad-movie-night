@@ -290,3 +290,22 @@
 
 		return $field_values;
 	}
+
+	/**
+	 * Custom movie background from post
+	 */
+	add_action('wp_head', 'movie_custom_background');
+
+	function movie_custom_background(){
+		$background = get_field('background_image', get_the_ID());
+
+		if ($background) {
+			?>
+			<style>
+				body {
+					background-image: url('<?= $background['url'] ?>');
+				}
+			</style>
+			<?php
+		}
+	}
