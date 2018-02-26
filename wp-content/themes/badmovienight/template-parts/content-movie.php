@@ -138,7 +138,7 @@
                     <div class="simple-lightbox">
                         <?php foreach (get_field('images') as $image): ?>
                             <a href="<?php print $image['url'] ?>">
-                                <img src="<?php print $image['sizes']['medium'] ?>" alt="<?php print $image['alt'] ?>">
+                                <img src="<?php print $image['sizes']['gallery-thumb'] ?>" alt="<?php print $image['alt'] ?>">
                             </a>
                         <?php endforeach; ?>
                     </div>

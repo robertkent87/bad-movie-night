@@ -43,6 +43,7 @@
 			add_theme_support('post-thumbnails');
 
 			add_image_size('list-thumb', 510, 764, true);
+			add_image_size('gallery-thumb', 9999, 170, false);
 
 			// This theme uses wp_nav_menu() in one location.
 			register_nav_menus(array(
