@@ -14,6 +14,7 @@
 	$genre_list      = strip_tags(get_the_term_list($post->ID, 'genre', '', ', ', ''));
 	$collection_list = strip_tags(get_the_term_list($post->ID, 'collection', '', ', ', ''));
 	$actors          = get_the_terms($post->ID, 'actors');
+	$badmovie_tags = get_the_terms($post->ID, 'bad_movie_tags');
 
 	// get iframe HTML
 	$iframe = get_field('trailer');
@@ -90,6 +91,13 @@
             <h1 class="d-none d-md-block mt-0"><?php the_title(); ?>
                 <small class="text-muted">(<?php the_field('year') ?>)</small>
             </h1>
+            <?php if ($badmovie_tags): ?>
+                <div id="bad-movie-tags" class="mb-3">
+                    <?php foreach ($badmovie_tags as $badmovie_tag): ?>
+                        <span class="bad-movie-tag"><?= $badmovie_tag->name; ?></span>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
             <!-- /Desktop title -->
             
             <p><em><?php the_field('synopsis') ?></em></p>

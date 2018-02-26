@@ -1209,3 +1209,13 @@ select#release-year {
 	border-radius: 5px;
 	margin-right: 8px;
 }
+
+/* Bad movie tags */
+.bad-movie-tag {
+	font-size: 0.85rem;
+	border: 1px solid;
+	padding: 0.1rem 0.6rem;
+	border-radius: 3px;
+	color: var(--main-color-light);
+	border-color: var(--main-color-light);
+}
