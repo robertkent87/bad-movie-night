@@ -174,9 +174,9 @@
                 </div>
 			<?php endif; ?>
 
-            <div class="mt-5" id="user-reviews">
-                <h2>User Reviews</h2>
-                <p>Coming in a later release...</p>
+<!--            <div class="mt-5" id="user-reviews">-->
+<!--                <h2>User Reviews</h2>-->
+<!--                <p>Coming in a later release...</p>-->
                 <!--                    <div class="media">-->
                 <!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
                 <!--                             alt="Generic placeholder image">-->
@@ -207,7 +207,7 @@
                 <!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
                 <!--                        </div>-->
                 <!--                    </div>-->
-            </div>
+<!--            </div>-->
         </div>
         <!-- /Movie listing -->
     </div>
