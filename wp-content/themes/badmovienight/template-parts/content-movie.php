@@ -130,19 +130,20 @@
             <div class="mt-5" id="movie-media">
                 <h2>Movie media</h2>
 
-                <div class="embed-container">
-					<?= $iframe; ?>
-                </div>
+				<?php if (get_field('trailer')): ?>
+                    <div class="embed-container"><?= $iframe; ?></div>
+				<?php endif; ?>
 
-                <?php if(get_field('images')): ?>
-                    <div class="simple-lightbox">
-                        <?php foreach (get_field('images') as $image): ?>
-                            <a href="<?php print $image['url'] ?>">
-                                <img src="<?php print $image['sizes']['gallery-thumb'] ?>" alt="<?php print $image['alt'] ?>">
+				<?php if (get_field('images')): ?>
+                    <div class="simple-lightbox mt-3">
+						<?php foreach (get_field('images') as $image): ?>
+                            <a href="<?php print $image['url'] ?>" class="d-inline-block mb-1">
+                                <img src="<?php print $image['sizes']['gallery-thumb'] ?>"
+                                     alt="<?php print $image['alt'] ?>">
                             </a>
-                        <?php endforeach; ?>
+						<?php endforeach; ?>
                     </div>
-                <?php endif; ?>
+				<?php endif; ?>
             </div>
 
             <div class="mt-5" id="stream-options">
@@ -203,7 +204,7 @@
                 <!--                    </div>-->
             </div>
         </div>
-    <!-- /Movie listing -->
+        <!-- /Movie listing -->
     </div>
 <?php else: ?>
     <article class="col-md-3 movie clearfix" id="post-<?php the_ID(); ?>">
