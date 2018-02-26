@@ -980,6 +980,11 @@ div#intro {
 }
 
 /* Submit movie form */
+#contact-form .btn,
+#submit-movie-form .btn {
+	display: block;
+}
+
 #submit-movie-form input[type=text],
 #submit-movie-form input[type=url],
 #submit-movie-form textarea,
