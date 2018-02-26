@@ -133,6 +133,16 @@
                 <div class="embed-container">
 					<?= $iframe; ?>
                 </div>
+
+                <?php if(get_field('images')): ?>
+                    <div class="simple-lightbox">
+                        <?php foreach (get_field('images') as $image): ?>
+                            <a href="<?php print $image['url'] ?>">
+                                <img src="<?php print $image['sizes']['medium'] ?>" alt="<?php print $image['alt'] ?>">
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="mt-5" id="stream-options">
