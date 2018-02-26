@@ -1036,6 +1036,16 @@ div#intro {
 	color: #fdfdfd !important;
 }
 
+.page-link {
+	background: none;
+	border: none;
+}
+
+.page-link:hover {
+	background: none;
+	border: none;
+}
+
 /* Movie grid */
 #movie-listing .movie {
 	position: relative;
