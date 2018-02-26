@@ -1046,6 +1046,16 @@ div#intro {
 	border: none;
 }
 
+.btn-secondary {
+	background-color: var(--main-color-light);
+	border-color: var(--main-color-light);
+}
+
+.btn-secondary:hover {
+	background-color: var(--main-link-hover);
+	border-color: var(--main-link-hover);
+}
+
 /* Movie grid */
 #movie-listing .movie {
 	position: relative;
