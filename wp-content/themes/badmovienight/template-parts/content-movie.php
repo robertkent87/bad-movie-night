@@ -27,12 +27,12 @@
 
 	// add extra params to iframe src
 	$params = array(
-		'controls' => 1,
-		'hd'       => 1,
-		'autohide' => 1,
-        'modestbranding' => 1,
-        'rel' => 0,
-        'showinfo' => 0,
+		'controls'       => 1,
+		'hd'             => 1,
+		'autohide'       => 1,
+		'modestbranding' => 1,
+		'rel'            => 0,
+		'showinfo'       => 0,
 	);
 
 	$new_src = add_query_arg($params, $src);
@@ -59,12 +59,12 @@
 
             <!-- Desktop meta -->
             <table class="table borderless d-none d-md-block">
-	            <?php if (get_field('imdb_rating')): ?>
-                <tr>
-                    <th>Rating</th>
-                    <td><?php the_field('imdb_rating'); ?></td>
-                </tr>
-                <?php endif; ?>
+				<?php if (get_field('imdb_rating')): ?>
+                    <tr>
+                        <th>Rating</th>
+                        <td><?php the_field('imdb_rating'); ?></td>
+                    </tr>
+				<?php endif; ?>
                 <tr>
                     <th>Genres</th>
                     <td><?= $genre_list; ?></td>
@@ -95,6 +95,13 @@
             <p><em><?php the_field('synopsis') ?></em></p>
 			<?php the_content(); ?>
 
+            <h3>Cast</h3>
+            <div class="row">
+				<?php foreach ($actors as $actor): ?>
+                    <div class="col"><?= $actor->name; ?></div>
+				<?php endforeach; ?>
+            </div>
+
             <!-- Mobile meta -->
             <table class="table borderless d-md-none d-lg-none d-xl-none">
                 <tr>
@@ -120,91 +127,73 @@
             </table>
             <!-- /Mobile meta -->
 
-            <ul class="nav nav-tabs mb-3" id="movie-detail-tabs" role="tablist">
-                <li class="nav-item">
-                    <a href="#details" id="details-tab" data-toggle="tab" role="tab"
-                       class="nav-link active">Details</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#user_reviews" id="reviews-tab" data-toggle="tab" role="tab" class="nav-link">User
-                        Reviews</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#stream_options" id="stream-tab" data-toggle="tab" role="tab" class="nav-link">Where to
-                        watch it</a></li>
-            </ul>
+            <div class="mt-5" id="movie-media">
+                <h2>Movie media</h2>
 
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane show active" id="details" role="tabpanel">
-                    <div class="embed-container">
-						<?= $iframe; ?>
-                    </div>
-
-                    <h3>Cast</h3>
-                    <div class="row">
-						<?php foreach ($actors as $actor): ?>
-                            <div class="col"><?= $actor->name; ?></div>
-						<?php endforeach; ?>
-                    </div>
-
-                </div>
-                <div class="tab-pane" id="user_reviews" role="tabpanel">
-                    <p>Coming in a later release...</p>
-                    <!--                    <div class="media">-->
-                    <!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
-                    <!--                             alt="Generic placeholder image">-->
-                    <!--                        <div class="media-body">-->
-                    <!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
-                    <!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
-                    <!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
-                    <!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="media my-4">-->
-                    <!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
-                    <!--                             alt="Generic placeholder image">-->
-                    <!--                        <div class="media-body">-->
-                    <!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
-                    <!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
-                    <!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
-                    <!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="media">-->
-                    <!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
-                    <!--                             alt="Generic placeholder image">-->
-                    <!--                        <div class="media-body">-->
-                    <!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
-                    <!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
-                    <!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
-                    <!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                </div>
-                <div class="tab-pane" id="stream_options" role="tabpanel">
-                    <p>Coming in a later release...</p>
-                    <!--                    <table class="table borderless">-->
-                    <!--                        <tr>-->
-                    <!--                            <th>Netflix</th>-->
-                    <!--                            <td>https://www.link.com</td>-->
-                    <!--                        </tr>-->
-                    <!--                        <tr>-->
-                    <!--                            <th>Amazon</th>-->
-                    <!--                            <td>https://www.link.com</td>-->
-                    <!--                        </tr>-->
-                    <!--                        <tr>-->
-                    <!--                            <th>YouTube</th>-->
-                    <!--                            <td>https://www.link.com</td>-->
-                    <!--                        </tr>-->
-                    <!--                        <tr>-->
-                    <!--                            <th>Other</th>-->
-                    <!--                            <td>https://www.link.com</td>-->
-                    <!--                        </tr>-->
-                    <!--                    </table>-->
+                <div class="embed-container">
+					<?= $iframe; ?>
                 </div>
             </div>
+
+            <div class="mt-5" id="stream-options">
+                <h2>Watch Options</h2>
+                <p>Coming in a later release...</p>
+                <!--                    <table class="table borderless">-->
+                <!--                        <tr>-->
+                <!--                            <th>Netflix</th>-->
+                <!--                            <td>https://www.link.com</td>-->
+                <!--                        </tr>-->
+                <!--                        <tr>-->
+                <!--                            <th>Amazon</th>-->
+                <!--                            <td>https://www.link.com</td>-->
+                <!--                        </tr>-->
+                <!--                        <tr>-->
+                <!--                            <th>YouTube</th>-->
+                <!--                            <td>https://www.link.com</td>-->
+                <!--                        </tr>-->
+                <!--                        <tr>-->
+                <!--                            <th>Other</th>-->
+                <!--                            <td>https://www.link.com</td>-->
+                <!--                        </tr>-->
+                <!--                    </table>-->
+            </div>
+
+            <div class="mt-5" id="user-reviews">
+                <h2>User Reviews</h2>
+                <p>Coming in a later release...</p>
+                <!--                    <div class="media">-->
+                <!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
+                <!--                             alt="Generic placeholder image">-->
+                <!--                        <div class="media-body">-->
+                <!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
+                <!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+                <!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
+                <!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div class="media my-4">-->
+                <!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
+                <!--                             alt="Generic placeholder image">-->
+                <!--                        <div class="media-body">-->
+                <!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
+                <!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+                <!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
+                <!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div class="media">-->
+                <!--                        <img class="mr-3" src="http://via.placeholder.com/64x64?text=Avatar"-->
+                <!--                             alt="Generic placeholder image">-->
+                <!--                        <div class="media-body">-->
+                <!--                            <h5 class="mt-0 mb-1">List-based media object</h5>-->
+                <!--                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+                <!--                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce-->
+                <!--                            condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+            </div>
         </div>
-        <!-- /Movie listing -->
+    <!-- /Movie listing -->
     </div>
 <?php else: ?>
     <article class="col-md-3 movie clearfix" id="post-<?php the_ID(); ?>">
