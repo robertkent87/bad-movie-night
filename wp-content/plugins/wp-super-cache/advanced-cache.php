@@ -17,6 +17,8 @@ function wpcache_broken_message() {
 	}
 }
 
+define('WPCACHEHOME', '/var/www/badmovienight.co.uk/wp-content/plugins/wp-super-cache/');
+
 if ( false == defined( 'WPCACHEHOME' ) ) {
 	define( 'ADVANCEDCACHEPROBLEM', 1 );
 } elseif ( ! include_once WPCACHEHOME . 'wp-cache-phase1.php' ) {
