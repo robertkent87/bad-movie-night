@@ -212,7 +212,7 @@
         <!-- /Movie listing -->
     </div>
 <?php else: ?>
-    <article class="col-md-3 movie clearfix" id="post-<?php the_ID(); ?>">
+    <article class="col-lg-3 col-md-4 col-sm-6 col-6 movie clearfix" id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb', ['class' => 'img-fluid', 'title' => get_the_title(), 'alt'   => get_the_title()]); ?></a>
 		<?php if (get_field('imdb_rating')): ?>
 			<?php
