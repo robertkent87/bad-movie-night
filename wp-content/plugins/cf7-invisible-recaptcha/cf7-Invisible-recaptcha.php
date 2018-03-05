@@ -16,7 +16,7 @@
  * Plugin Name:       CF7 Invisible reCAPTCHA
  * Plugin URI:        https://wordpress.org/plugins/cf7-invisible-recaptcha/
  * Description:       Effective solution that secure your Contact form 7.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Author:            Vsourz Digital
  * Author URI:        https://www.vsourz.com/
  * License:           GPL-2.0+
@@ -97,8 +97,8 @@ function vsz_cf7_invisible_recaptcha_page(){
 	$secretkey= get_option('invisible_recaptcha_secretkey');
 	$badge = get_option('invisible_recaptcha_badge');
 	$badge_position = get_option('invisible_recaptcha_badge_position');
-	$exclude = get_option('invisible_recaptcha_badge_exclude');?>
-	<style>
+	$exclude = get_option('invisible_recaptcha_badge_exclude');
+	?><style>
 		#invisible_recaptcha .form-table th{
 			width:130px;
 		}
@@ -128,8 +128,9 @@ function vsz_cf7_invisible_recaptcha_page(){
 						<td>
 							<div class="vsz_recaptcha_setup">
 								<div class="vsz_recaptcha_setup_msg"></div>
-									<input type="button" class="button button-primary vsz_recaptcha_test" id="recaptcha-holder-1" value="Validate Credentials"/>
-								</div>	
+								<input type="button" class="button button-primary vsz_recaptcha_test" id="recaptcha-holder-1" value="Validate Credentials"/>
+								<p class="spinner" style="float:none;"></p>
+							</div>	
 						</td>
 					</tr>
 					<tr>
@@ -224,7 +225,7 @@ function vsz_cf7_invisible_recaptcha_page(){
 		});
 		var ajax_nonce = "<?php echo wp_create_nonce( "checksecretkey" );?>";
 		var renderGoogleInvisibleRecaptcha = function() {
-			
+			jQuery(".spinner").css("visibility","visible");
 			var index  = 1;
 			var sitekey = jQuery('#sitekey').val();
 			var holderId = grecaptcha.render('recaptcha-holder-'+index,{
@@ -247,6 +248,7 @@ function vsz_cf7_invisible_recaptcha_page(){
 										'ajax_nonce':ajax_nonce,
 										},
 								success: function(data){
+									jQuery(".spinner").css("visibility","hidden");	
 									jQuery('.vsz_recaptcha_setup_msg').append('<div id="message" class="notice  is-dismissible"><p>Your Secret Key is '+data+'.</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
 
 								}
@@ -255,6 +257,7 @@ function vsz_cf7_invisible_recaptcha_page(){
 							
 						},
 						'error-callback' : function(){
+							jQuery(".spinner").css("visibility","hidden");	
 							jQuery('.vsz_recaptcha_setup_msg').html('<div id="message" class="notice  is-dismissible"><p>Your Site Key is Invalid.</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
 						},  
 				},false);
@@ -306,115 +309,117 @@ function vsz_cf7_invisible_recaptcha_page_scripts(){
 		var contactform = {};
 		
 		var renderGoogleInvisibleRecaptcha = function() {
-			jQuery(document).ready(function(){
-			// prevent form submit from enter key
-			jQuery("input[name=_wpcf7]").attr("class","formid");
-				jQuery('.wpcf7-form').on('keyup keypress', "input", function(e) {
-				  var keyCode = e.keyCode || e.which;
-				  if (keyCode === 13) { 
-					e.preventDefault();
-					return false;
-				  }
-				});
-			});	
-			jQuery('.wpcf7-submit').each(function(index){
+			//jQuery(document).ready(function(){
 				
-				var checkexclude = 0;
-				var form = jQuery(this).closest('.wpcf7-form');
-				var value = jQuery(form).find(".formid").val();
-				// check form exclude from invisible recaptcha
-				<?php 
-					if(isset($exclude) && !empty($exclude) && $exclude[0] != ''){
-						foreach($exclude as $data){ ?>
-							if(value == <?php echo $data;?>){
-								checkexclude = 1;
-								form.find('.wpcf7-submit').show();
-							}
-				<?php  }
-					 }
-				?>
-				if(checkexclude == 0){
-					var ajax_nonce = "<?php echo wp_create_nonce( "contactformmassage" );?>";
-					var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' );?>";
-					// Call ajax for get contact form messages
-					jQuery.ajax({
-						url: ajaxurl, 
-						type: 'POST',
-						data: {'postId':value,'action':"vsz_cf7_contact_message","ajax_nonce":ajax_nonce},
-						success: function(data){
-							var contacid = value;
-							contactform[contacid] = JSON.parse(data);	
-						}
+				// prevent form submit from enter key
+				jQuery("input[name=_wpcf7]").attr("class","formid");
+					jQuery('.wpcf7-form').on('keyup keypress', "input", function(e) {
+					  var keyCode = e.keyCode || e.which;
+					  if (keyCode === 13) { 
+						e.preventDefault();
+						return false;
+					  }
 					});
-					// Hide the form orig submit button
-					form.find('.wpcf7-submit').hide();
-
-					// Fetch class and value of orig submit button
-					btnClasses = form.find('.wpcf7-submit').attr('class');
-					btnValue = form.find('.wpcf7-submit').attr('value');
-
-					// Add custom button and recaptcha holder
+			
+				jQuery('.wpcf7-submit').each(function(index){
 					
-					form.find('.wpcf7-submit').after('<input type="button" id="wpcf-custom-btn-'+index+'" class="'+btnClasses+'  recaptcha-btn recaptcha-btn-type-css" value="'+btnValue+'" title="'+btnValue+'" >');
-					form.append('<div class="recaptcha-holder" id="recaptcha-holder-'+index+'"></div>');
-					// Recaptcha rendenr from here
-					var holderId = grecaptcha.render('recaptcha-holder-'+index,{
-								'sitekey':'<?php $site_key = get_option('invisible_recaptcha_sitekey'); if(isset($site_key) && !empty($site_key)){ echo $site_key;}?>',
-								'size': 'invisible',
-								'badge' : '<?php echo $badge_position;?>', // possible values: bottomright, bottomleft, inline
-								'callback' : function (recaptchaToken) {
-									//console.log(recaptchaToken);
-									var response=jQuery('#recaptcha-holder-'+index).find('.g-recaptcha-response').val();
-									//console.log(response);
-									//Remove old response and store new respone 
-									jQuery('#recaptcha-holder-'+index).parent().find(".respose_post").remove();
-									jQuery('#recaptcha-holder-'+index).after('<input type="hidden" name="g-recaptcha-response"  value="'+response+'" class="respose_post">')
-									grecaptcha.reset(holderId);
-									
-									if(typeof customCF7Validator !== 'undefined'){
-										if(!customCF7Validator(form)){
+					var checkexclude = 0;
+					var form = jQuery(this).closest('.wpcf7-form');
+					var value = jQuery(form).find(".formid").val();
+					// check form exclude from invisible recaptcha
+					<?php 
+						if(isset($exclude) && !empty($exclude) && $exclude[0] != ''){
+							foreach($exclude as $data){ ?>
+								if(value == <?php echo $data;?>){
+									checkexclude = 1;
+									form.find('.wpcf7-submit').show();
+								}
+					<?php  }
+						 }
+					?>
+					if(checkexclude == 0){
+						var ajax_nonce = "<?php echo wp_create_nonce( "contactformmassage" );?>";
+						var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' );?>";
+						// Call ajax for get contact form messages
+						jQuery.ajax({
+							url: ajaxurl, 
+							type: 'POST',
+							data: {'postId':value,'action':"vsz_cf7_contact_message","ajax_nonce":ajax_nonce},
+							success: function(data){
+								var contacid = value;
+								contactform[contacid] = JSON.parse(data);	
+							}
+						});
+						// Hide the form orig submit button
+						form.find('.wpcf7-submit').hide();
+
+						// Fetch class and value of orig submit button
+						btnClasses = form.find('.wpcf7-submit').attr('class');
+						btnValue = form.find('.wpcf7-submit').attr('value');
+
+						// Add custom button and recaptcha holder
+						
+						form.find('.wpcf7-submit').after('<input type="button" id="wpcf-custom-btn-'+index+'" class="'+btnClasses+'  recaptcha-btn recaptcha-btn-type-css" value="'+btnValue+'" title="'+btnValue+'" >');
+						form.append('<div class="recaptcha-holder" id="recaptcha-holder-'+index+'"></div>');
+						// Recaptcha rendenr from here
+						var holderId = grecaptcha.render('recaptcha-holder-'+index,{
+									'sitekey':'<?php $site_key = get_option('invisible_recaptcha_sitekey'); if(isset($site_key) && !empty($site_key)){ echo $site_key;}?>',
+									'size': 'invisible',
+									'badge' : '<?php echo $badge_position;?>', // possible values: bottomright, bottomleft, inline
+									'callback' : function (recaptchaToken) {
+										//console.log(recaptchaToken);
+										var response=jQuery('#recaptcha-holder-'+index).find('.g-recaptcha-response').val();
+										//console.log(response);
+										//Remove old response and store new respone 
+										jQuery('#recaptcha-holder-'+index).parent().find(".respose_post").remove();
+										jQuery('#recaptcha-holder-'+index).after('<input type="hidden" name="g-recaptcha-response"  value="'+response+'" class="respose_post">')
+										grecaptcha.reset(holderId);
+										
+										if(typeof customCF7Validator !== 'undefined'){
+											if(!customCF7Validator(form)){
+												return;
+											}
+										}
+										// Call default Validator function
+										else if(contactFormDefaultValidator(form)){
 											return;
 										}
+										else{
+											// hide the custom button and show orig submit button again and submit the form
+											jQuery('#wpcf-custom-btn-'+index).hide();
+											form.find('input[type=submit]').show();
+											form.find("input[type=submit]").click();
+											form.find('input[type=submit]').hide();
+											jQuery('#wpcf-custom-btn-'+index).attr('style','');
+										}
 									}
-									// Call default Validator function
-									else if(contactFormDefaultValidator(form)){
-										return;
-									}
-									else{
-										// hide the custom button and show orig submit button again and submit the form
-										jQuery('#wpcf-custom-btn-'+index).hide();
-										form.find('input[type=submit]').show();
-										form.find("input[type=submit]").click();
-										form.find('input[type=submit]').hide();
-										jQuery('#wpcf-custom-btn-'+index).attr('style','');
-									}
+							},false);
+							
+						// action call when click on custom button
+						jQuery('#wpcf-custom-btn-'+index).click(function(event){
+							event.preventDefault();
+							// Call custom validator function
+							if(typeof customCF7Validator == 'function'){
+								if(!customCF7Validator(form)){
+									return false;
 								}
-						},false);
-						
-					// action call when click on custom button
-					jQuery('#wpcf-custom-btn-'+index).click(function(event){
-						event.preventDefault();
-						// Call custom validator function
-						if(typeof customCF7Validator == 'function'){
-							if(!customCF7Validator(form)){
+							}
+							// Call default Validator function
+							else if(contactFormDefaultValidator(form)){
 								return false;
 							}
-						}
-						// Call default Validator function
-						else if(contactFormDefaultValidator(form)){
-							return false;
-						}
-						else if(grecaptcha.getResponse(holderId) != ''){
-							grecaptcha.reset(holderId);
-						}
-						else{
-							// execute the recaptcha challenge
-							grecaptcha.execute(holderId);
-						}
-					});
-				}
-				
-			});
+							else if(grecaptcha.getResponse(holderId) != ''){
+								grecaptcha.reset(holderId);
+							}
+							else{
+								// execute the recaptcha challenge
+								grecaptcha.execute(holderId);
+							}
+						});
+					}
+					
+				});
+			//});		
 				
 		};
 		// Default validator function

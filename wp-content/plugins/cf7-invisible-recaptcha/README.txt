@@ -3,7 +3,7 @@ Contributors: vsourz1td
 Tags: CF7-Invisible-reCAPTCHA,contact-form-7-invisible-reCAPTCHA,invisible-reCAPTCHA
 Requires at least: 4.5
 Tested up to: 4.9.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,8 @@ If you think, that you found a bug in our CF7 Invisible reCAPTCHA plugin or have
 1. General Settings.
 
 == Changelog ==
+= 1.2.1 =
+* **Minor tweak related to javascript**: Fix issue related to not get any action on click on form submit.
 
 = 1.2.0 =
 * **Repositioning**: We have set the 'CF7 Invisible reCAPTCHA' menu under Contact Form menu.
