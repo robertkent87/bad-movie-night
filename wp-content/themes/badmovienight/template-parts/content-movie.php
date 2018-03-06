@@ -121,7 +121,6 @@
 			<?php if (have_rows('watch_options')): ?>
                 <div class="mt-5" id="stream-options">
                     <h2 class="mb-3">Watch Options</h2>
-
                     <div class="row">
 						<?php badmovienight_watch_options(); ?>
                     </div>
