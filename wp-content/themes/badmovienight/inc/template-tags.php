@@ -184,10 +184,46 @@
 		 */
 		function badmovienight_bad_tags() {
 			$badmovie_tags = '';
-			foreach (get_the_terms(get_the_ID(), 'bad_movie_tags') as $badmovie_tag){
-                $badmovie_tags .= "<span class='bad-movie-tag'>{$badmovie_tag->name}</span> ";
-            }
+			foreach (get_the_terms(get_the_ID(), 'bad_movie_tags') as $badmovie_tag) {
+				$badmovie_tags .= "<span class='bad-movie-tag'>{$badmovie_tag->name}</span> ";
+			}
 
-            print $badmovie_tags;
+			print $badmovie_tags;
 		}
+	endif;
+
+	if ( ! function_exists('badmovienight_trailer')):
+		/**
+		 * Retrieve and displays the trailer for an individual movie.
+         * Sets various options for the embed.
+		 */
+        function badmovienight_trailer(){
+	        // get iframe HTML
+	        $iframe = get_field('trailer');
+
+	        // remove width & height attributes
+	        $iframe = preg_replace('/(width|height)=("|\')\d*(|px)("|\')\s/', "", $iframe);
+
+	        // use preg_match to find iframe src
+	        preg_match('/src="(.+?)"/', $iframe, $matches);
+	        $src = $matches[1];
+
+	        // add extra params to iframe src
+	        $params = array(
+		        'controls'       => 1,
+		        'hd'             => 1,
+		        'autohide'       => 1,
+		        'modestbranding' => 1,
+		        'rel'            => 0,
+		        'showinfo'       => 0,
+	        );
+
+	        $new_src = add_query_arg($params, $src);
+	        $iframe  = str_replace($src, $new_src, $iframe);
+
+	        // add extra attributes to iframe html
+	        $attributes = 'frameborder="0"';
+
+	        print str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+        }
 	endif;

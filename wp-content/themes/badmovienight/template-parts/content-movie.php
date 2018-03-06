@@ -10,35 +10,6 @@
 ?>
 
 <?php if ( ! is_front_page()) : ?>
-	<?php
-	// get iframe HTML
-	$iframe = get_field('trailer');
-
-	// remove width & height attributes
-	$iframe = preg_replace('/(width|height)=("|\')\d*(|px)("|\')\s/', "", $iframe);
-
-	// use preg_match to find iframe src
-	preg_match('/src="(.+?)"/', $iframe, $matches);
-	$src = $matches[1];
-
-	// add extra params to iframe src
-	$params = array(
-		'controls'       => 1,
-		'hd'             => 1,
-		'autohide'       => 1,
-		'modestbranding' => 1,
-		'rel'            => 0,
-		'showinfo'       => 0,
-	);
-
-	$new_src = add_query_arg($params, $src);
-	$iframe  = str_replace($src, $new_src, $iframe);
-
-	// add extra attributes to iframe html
-	$attributes = 'frameborder="0"';
-	$iframe     = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
-
-	?>
     <div class="row" id="movie-detail">
         <div class="col-md-3">
             <!-- Mobile header -->
@@ -131,7 +102,7 @@
                     <h2>Movie media</h2>
 
 					<?php if (get_field('trailer')): ?>
-                        <div class="embed-container"><?= $iframe; ?></div>
+                        <div class="embed-container"><?php badmovienight_trailer(); ?></div>
 					<?php endif; ?>
 
 					<?php if (get_field('images')): ?>
