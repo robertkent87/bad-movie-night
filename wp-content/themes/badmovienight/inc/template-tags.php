@@ -150,16 +150,30 @@
 		/**
 		 * Retrieves and displays the Genre list for an individual movie
 		 */
-        function badmovienight_genre_list(){
-	        print strip_tags(get_the_term_list(get_the_ID(), 'genre', '', ', ', ''));
-        }
+		function badmovienight_genre_list() {
+			print strip_tags(get_the_term_list(get_the_ID(), 'genre', '', ', ', ''));
+		}
 	endif;
 
 	if ( ! function_exists('badmovienight_collection_list')):
 		/**
 		 * Retrieves and displays the Collection list for an individual movie
 		 */
-        function badmovienight_collection_list(){
-	        print strip_tags(get_the_term_list(get_the_ID(), 'collection', '', ', ', ''));
-        }
+		function badmovienight_collection_list() {
+			print strip_tags(get_the_term_list(get_the_ID(), 'collection', '', ', ', ''));
+		}
+	endif;
+
+	if ( ! function_exists('badmovienight_get_actors')):
+		/**
+		 * Retrieves and displays the actors for an individual movie
+		 */
+		function badmovienight_get_actors() {
+			$actors = '';
+			foreach (get_the_terms(get_the_ID(), 'actors') as $actor) {
+				$actors .= "<div class='col'>{$actor->name}</div>";
+			}
+
+			print $actors;
+		}
 	endif;

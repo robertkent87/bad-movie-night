@@ -11,7 +11,6 @@
 
 <?php if ( ! is_front_page()) : ?>
 	<?php
-	$actors          = get_the_terms($post->ID, 'actors');
 	$badmovie_tags = get_the_terms($post->ID, 'bad_movie_tags');
 
 	// get iframe HTML
@@ -103,9 +102,7 @@
 
             <h3>Cast</h3>
             <div class="row">
-				<?php foreach ($actors as $actor): ?>
-                    <div class="col"><?= $actor->name; ?></div>
-				<?php endforeach; ?>
+				<?php badmovienight_get_actors(); ?>
             </div>
 
             <!-- Mobile meta -->
