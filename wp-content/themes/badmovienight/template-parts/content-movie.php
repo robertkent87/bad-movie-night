@@ -177,21 +177,7 @@
     <article class="col-lg-3 col-md-4 col-sm-6 col-6 movie clearfix" id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb', ['class' => 'img-fluid', 'title' => get_the_title(), 'alt'   => get_the_title()]); ?></a>
 		<?php if (get_field('imdb_rating')): ?>
-			<?php
-			$score = get_field('imdb_rating');
-			switch ($score) {
-				case $score <= 3:
-					$rating = 'bad';
-					break;
-				case $score <= 6;
-					$rating = 'poor';
-					break;
-				default:
-					$rating = 'good';
-					break;
-			}
-			?>
-            <span class="movie-rating <?= $rating ?>"><?= $score ?></span>
+            <span class="movie-rating <?php badmovienight_rating_class(); ?>"><?php the_field('imdb_rating') ?></span>
 		<?php endif; ?>
         <p class="movie-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
     </article>

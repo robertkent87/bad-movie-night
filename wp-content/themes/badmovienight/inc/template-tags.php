@@ -195,35 +195,52 @@
 	if ( ! function_exists('badmovienight_trailer')):
 		/**
 		 * Retrieve and displays the trailer for an individual movie.
-         * Sets various options for the embed.
+		 * Sets various options for the embed.
 		 */
-        function badmovienight_trailer(){
-	        // get iframe HTML
-	        $iframe = get_field('trailer');
+		function badmovienight_trailer() {
+			// get iframe HTML
+			$iframe = get_field('trailer');
 
-	        // remove width & height attributes
-	        $iframe = preg_replace('/(width|height)=("|\')\d*(|px)("|\')\s/', "", $iframe);
+			// remove width & height attributes
+			$iframe = preg_replace('/(width|height)=("|\')\d*(|px)("|\')\s/', "", $iframe);
 
-	        // use preg_match to find iframe src
-	        preg_match('/src="(.+?)"/', $iframe, $matches);
-	        $src = $matches[1];
+			// use preg_match to find iframe src
+			preg_match('/src="(.+?)"/', $iframe, $matches);
+			$src = $matches[1];
 
-	        // add extra params to iframe src
-	        $params = array(
-		        'controls'       => 1,
-		        'hd'             => 1,
-		        'autohide'       => 1,
-		        'modestbranding' => 1,
-		        'rel'            => 0,
-		        'showinfo'       => 0,
-	        );
+			// add extra params to iframe src
+			$params = array(
+				'controls'       => 1,
+				'hd'             => 1,
+				'autohide'       => 1,
+				'modestbranding' => 1,
+				'rel'            => 0,
+				'showinfo'       => 0,
+			);
 
-	        $new_src = add_query_arg($params, $src);
-	        $iframe  = str_replace($src, $new_src, $iframe);
+			$new_src = add_query_arg($params, $src);
+			$iframe  = str_replace($src, $new_src, $iframe);
 
-	        // add extra attributes to iframe html
-	        $attributes = 'frameborder="0"';
+			// add extra attributes to iframe html
+			$attributes = 'frameborder="0"';
 
-	        print str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
-        }
+			print str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+		}
+	endif;
+
+	if ( ! function_exists('badmovienight_rating_class')):
+		/**
+		 * Calculates the correct class for a movie ratings display
+		 */
+		function badmovienight_rating_class() {
+			$score = get_field('imdb_rating');
+
+			if ($score <= 3){
+			    print 'bad';
+            } elseif ($score <= 6){
+			    print 'poor';
+            } else {
+			    print 'good';
+            }
+		}
 	endif;
