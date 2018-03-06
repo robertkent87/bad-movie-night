@@ -123,15 +123,7 @@
                     <h2 class="mb-3">Watch Options</h2>
 
                     <div class="row">
-						<?php while (have_rows('watch_options')): the_row(); ?>
-							<?php
-							$watch_location_field = get_sub_field_object('watch_location');
-							$watch_location_value = $watch_location_field['value'];
-							$watch_location_label = $watch_location_field['choices'][$watch_location_value];
-							?>
-                            <div class="col"><i class="icofont icofont-brand-<?= $watch_location_value ?>"></i><a href="<?php the_sub_field('watch_link'); ?>"
-                                                target="_blank"><?= $watch_location_label; ?></a></div>
-						<?php endwhile; ?>
+						<?php badmovienight_watch_options(); ?>
                     </div>
                 </div>
 			<?php endif; ?>

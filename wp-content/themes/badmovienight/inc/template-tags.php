@@ -235,12 +235,31 @@
 		function badmovienight_rating_class() {
 			$score = get_field('imdb_rating');
 
-			if ($score <= 3){
-			    print 'bad';
-            } elseif ($score <= 6){
-			    print 'poor';
-            } else {
-			    print 'good';
-            }
+			if ($score <= 3) {
+				print 'bad';
+			} elseif ($score <= 6) {
+				print 'poor';
+			} else {
+				print 'good';
+			}
+		}
+	endif;
+
+	if ( ! function_exists('badmovienight_watch_options')):
+		/**
+		 * Retrieves and displays the watch options for an individual movie
+		 */
+		function badmovienight_watch_options() {
+			$watch_options = '';
+			while (have_rows('watch_options')): the_row();
+				$watch_location_field = get_sub_field_object('watch_location');
+				$watch_location_value = $watch_location_field['value'];
+				$watch_location_label = $watch_location_field['choices'][$watch_location_value];
+				$watch_link           = get_sub_field('watch_link');
+
+				$watch_options .= "<div class='col'><i class='icofont icofont-brand-" . $watch_location_value . "'></i><a href='" . $watch_link . "' target='_blank'>" . $watch_location_label . "</a></div>";
+			endwhile;
+
+			print $watch_options;
 		}
 	endif;
