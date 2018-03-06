@@ -11,7 +11,6 @@
 
 <?php if ( ! is_front_page()) : ?>
 	<?php
-	$genre_list      = strip_tags(get_the_term_list($post->ID, 'genre', '', ', ', ''));
 	$collection_list = strip_tags(get_the_term_list($post->ID, 'collection', '', ', ', ''));
 	$actors          = get_the_terms($post->ID, 'actors');
 	$badmovie_tags = get_the_terms($post->ID, 'bad_movie_tags');
@@ -68,7 +67,7 @@
 				<?php endif; ?>
                 <tr>
                     <th>Genres</th>
-                    <td><?= $genre_list; ?></td>
+                    <td><?php badmovienight_genre_list(); ?></td>
                 </tr>
                 <tr>
                     <th>Runtime</th>
@@ -118,7 +117,7 @@
                 </tr>
                 <tr>
                     <th>Genres</th>
-                    <td><?= $genre_list; ?></td>
+                    <td><?php badmovienight_genre_list(); ?></td>
                 </tr>
                 <tr>
                     <th>Runtime</th>

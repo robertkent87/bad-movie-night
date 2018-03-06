@@ -145,3 +145,12 @@
 			<?php endif; // End is_singular().
 		}
 	endif;
+
+	if ( ! function_exists('badmovienight_genre_list')):
+		/**
+		 * Retrieves and displays the Genre list for an individual movie
+		 */
+        function badmovienight_genre_list(){
+	        print strip_tags(get_the_term_list(get_the_ID(), 'genre', '', ', ', ''));
+        }
+	endif;
