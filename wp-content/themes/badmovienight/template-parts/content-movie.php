@@ -11,7 +11,6 @@
 
 <?php if ( ! is_front_page()) : ?>
 	<?php
-	$collection_list = strip_tags(get_the_term_list($post->ID, 'collection', '', ', ', ''));
 	$actors          = get_the_terms($post->ID, 'actors');
 	$badmovie_tags = get_the_terms($post->ID, 'bad_movie_tags');
 
@@ -79,7 +78,7 @@
                 </tr>
                 <tr>
                     <th>Collection</th>
-                    <td><?= $collection_list; ?></td>
+                    <td><?php badmovienight_collection_list(); ?></td>
                 </tr>
             </table>
             <!-- /Desktop meta -->
@@ -129,7 +128,7 @@
                 </tr>
                 <tr>
                     <th>Collection</th>
-                    <td><?= $collection_list; ?></td>
+                    <td><?php badmovienight_collection_list() ?></td>
                 </tr>
             </table>
             <!-- /Mobile meta -->

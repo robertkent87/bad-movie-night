@@ -154,3 +154,12 @@
 	        print strip_tags(get_the_term_list(get_the_ID(), 'genre', '', ', ', ''));
         }
 	endif;
+
+	if ( ! function_exists('badmovienight_collection_list')):
+		/**
+		 * Retrieves and displays the Collection list for an individual movie
+		 */
+        function badmovienight_collection_list(){
+	        print strip_tags(get_the_term_list(get_the_ID(), 'collection', '', ', ', ''));
+        }
+	endif;
