@@ -177,3 +177,17 @@
 			print $actors;
 		}
 	endif;
+
+	if ( ! function_exists('badmovienight_bad_tags')):
+		/**
+		 * Retrieves and displays the 'bad' tags for an individual movie
+		 */
+		function badmovienight_bad_tags() {
+			$badmovie_tags = '';
+			foreach (get_the_terms(get_the_ID(), 'bad_movie_tags') as $badmovie_tag){
+                $badmovie_tags .= "<span class='bad-movie-tag'>{$badmovie_tag->name}</span> ";
+            }
+
+            print $badmovie_tags;
+		}
+	endif;

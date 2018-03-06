@@ -11,8 +11,6 @@
 
 <?php if ( ! is_front_page()) : ?>
 	<?php
-	$badmovie_tags = get_the_terms($post->ID, 'bad_movie_tags');
-
 	// get iframe HTML
 	$iframe = get_field('trailer');
 
@@ -88,11 +86,9 @@
             <h1 class="d-none d-md-block mt-0"><?php the_title(); ?>
                 <small class="text-muted">(<?php the_field('year') ?>)</small>
             </h1>
-            <?php if ($badmovie_tags): ?>
+            <?php if (get_the_terms(get_the_ID(), 'bad_movie_tags')): ?>
                 <div id="bad-movie-tags" class="mb-3">
-                    <?php foreach ($badmovie_tags as $badmovie_tag): ?>
-                        <span class="bad-movie-tag"><?= $badmovie_tag->name; ?></span>
-                    <?php endforeach; ?>
+                    <?php badmovienight_bad_tags(); ?>
                 </div>
             <?php endif; ?>
             <!-- /Desktop title -->
