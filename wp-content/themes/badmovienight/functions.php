@@ -27,6 +27,9 @@
 			// Add default posts and comments RSS feed links to head.
 			add_theme_support('automatic-feed-links');
 
+			// Auto update plugins
+			add_filter( 'auto_update_plugin', '__return_true' );
+
 			/*
 			 * Let WordPress manage the document title.
 			 * By adding theme support, we declare that this theme does not use a
